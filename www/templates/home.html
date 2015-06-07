@@ -1,0 +1,10 @@
+<ion-slide-box active-slide="myActiveSlide">
+	<ion-slide ng-repeat="slide in slides">
+		<div>
+			<h1>{{slide.title}}</h1>
+			<p>{{slide.description}}</p>
+
+			<a class="button button-full button-dark" href="{{slide.buttonLink}}">{{slide.buttonText}}</a>
+		</div>
+	</ion-slide>
+</ion-slide-box>
