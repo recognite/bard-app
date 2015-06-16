@@ -49,17 +49,19 @@ angular.module('ionicApp', ['ionic'])
 			'menuContent': {
 				templateUrl: "templates/journeys.html"
 			}
-		},
-		controller: 'JourneyController'
+		}
     })
 })
 
 .controller('SlideController', function($scope) {  
 	$scope.myActiveSlide = 0;
 	$scope.slides = [
-		{title: 'IRISH MYTH & LEGEND', description: 'Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology', buttonText: 'GET STARTED', buttonLink: '#/home'},
-		{title: 'ARCHETYPES', description: 'Learn about the mythological archetypes and take a quiz to see which one you identify with', buttonText: 'TAKE QUIZ', buttonLink: '#/app/archetype'},
-		{title: 'CHARACTERS', description: 'Study the stories of warriors, kings, queens, and wizards', buttonText: 'LEARN MORE', buttonLink: '#/character'},
+		{title: 'DISCOVER DEEP FORGOTTEN WISDOM', description: 'Bard Mythologies revives the Bardic Tradition, a wisdom of the people, which helps us to view life beneath the surface and make sense of the world around us through the story, folklore, symbols and archetypal characters.', buttonText: 'Swipe left to continue', buttonLink: '#/home', img: "spiral.png"},
+		{title: 'IRISH MYTH & LEGEND', description: 'Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology', buttonText: 'GET STARTED', buttonLink: '#/home', img: "spiral.png"},
+		{title: 'STORIES', description: 'Each cycle comprises a unique set of stories that contain the collective desires and goals of a people.', buttonText: 'GET STARTED', buttonLink: '#/character', img: "spiral.png"},
+		{title: 'CHARACTERS', description: 'The stories are filled with great heroic archetypes and characters that carry the wisdom of the people.', buttonText: 'GET STARTED', buttonLink: '#/character', img: "spiral.png"},
+		{title: 'ARCHETYPES', description: 'Archetypes appear throughout all stories. Discover which archetypal is closest to your personality.', buttonText: 'GET STARTED', buttonLink: '#/app/archetype', img: "spiral.png"},
+		{title: 'JOURNEYS', description: 'Gain a deeper insight into the stories by taking a guided journey on one of the wisdom paths.', buttonText: 'GET STARTED', buttonLink: '#/app/journeys', img: "spiral.png"}
 	];
   
 })
