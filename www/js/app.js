@@ -21,21 +21,39 @@ angular.module('ionicApp', ['ionic'])
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/')
 
-  $stateProvider.state('home', {
-    url: '/',
-    templateUrl: 'templates/home.html',
-	controller: 'SlideController'
-  })
+	$stateProvider.state('slider', {
+		url: '/',
+		templateUrl: 'templates/slider.html',
+		controller: 'SlideController'
+	})
 
-    .state('app', {
+	.state('app', {
 		url: "/app",
 		abstract: true,
 		templateUrl: "templates/menu.html",
 		controller: 'MainController'
+	})
+
+    .state('app.home', {
+		url: "/home",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/home.html"
+			}
+		}
     })
 
-    .state('app.archetype', {
-		url: "/archetype",
+    .state('app.myth', {
+		url: "/myths",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/myth.html"
+			}
+		}
+    })
+
+    .state('app.archetypes', {
+		url: "/archetypes",
 		views: {
 			'menuContent': {
 				templateUrl: "templates/archetype.html"
@@ -51,16 +69,34 @@ angular.module('ionicApp', ['ionic'])
 			}
 		}
     })
+
+    .state('app.stories', {
+		url: "/stories",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/story.html"
+			}
+		}
+    })
+
+    .state('app.characters', {
+		url: "/characters",
+		views: {
+			'menuContent': {
+				templateUrl: "templates/character.html"
+			}
+		}
+    })
 })
 
 .controller('SlideController', function($scope) {  
 	$scope.myActiveSlide = 0;
 	$scope.slides = [
-		{title: 'DISCOVER DEEP FORGOTTEN WISDOM', description: 'Bard Mythologies revives the Bardic Tradition, a wisdom of the people, which helps us to view life beneath the surface and make sense of the world around us through the story, folklore, symbols and archetypal characters.', buttonText: 'Swipe left to continue', buttonLink: '#/home', img: "spiral.png"},
-		{title: 'IRISH MYTH & LEGEND', description: 'Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology', buttonText: 'GET STARTED', buttonLink: '#/home', img: "spiral.png"},
-		{title: 'STORIES', description: 'Each cycle comprises a unique set of stories that contain the collective desires and goals of a people.', buttonText: 'GET STARTED', buttonLink: '#/character', img: "spiral.png"},
-		{title: 'CHARACTERS', description: 'The stories are filled with great heroic archetypes and characters that carry the wisdom of the people.', buttonText: 'GET STARTED', buttonLink: '#/character', img: "spiral.png"},
-		{title: 'ARCHETYPES', description: 'Archetypes appear throughout all stories. Discover which archetypal is closest to your personality.', buttonText: 'GET STARTED', buttonLink: '#/app/archetype', img: "spiral.png"},
+		{title: 'DISCOVER DEEP FORGOTTEN WISDOM', description: 'Bard Mythologies revives the Bardic Tradition, a wisdom of the people, which helps us to view life beneath the surface and make sense of the world around us through the story, folklore, symbols and archetypal characters.', buttonText: 'Swipe left to continue', buttonLink: '#/app/home', img: "spiral.png"},
+		{title: 'IRISH MYTH & LEGEND', description: 'Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology', buttonText: 'GET STARTED', buttonLink: '#/app/myths', img: "spiral.png"},
+		{title: 'STORIES', description: 'Each cycle comprises a unique set of stories that contain the collective desires and goals of a people.', buttonText: 'GET STARTED', buttonLink: '#/app/stories', img: "spiral.png"},
+		{title: 'CHARACTERS', description: 'The stories are filled with great heroic archetypes and characters that carry the wisdom of the people.', buttonText: 'GET STARTED', buttonLink: '#/app/characters', img: "spiral.png"},
+		{title: 'ARCHETYPES', description: 'Archetypes appear throughout all stories. Discover which archetypal is closest to your personality.', buttonText: 'GET STARTED', buttonLink: '#/app/archetypes', img: "spiral.png"},
 		{title: 'JOURNEYS', description: 'Gain a deeper insight into the stories by taking a guided journey on one of the wisdom paths.', buttonText: 'GET STARTED', buttonLink: '#/app/journeys', img: "spiral.png"}
 	];
   

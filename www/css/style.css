@@ -1,4 +1,5 @@
 /* Empty. Add your own CSS if you like */
+/*
 body {
     background: url('../img/bgspiral.jpg');
     background-attachment: fixed;
@@ -6,13 +7,13 @@ body {
 }
 
 body .view-container.tab-content {
-  background-color: transparent;
+	background-color: transparent;
 }
 
 body .pane, .menu, .view, .list, .item       {
     background: transparent;
 }
-
+*/
 .slider {
   /*height: 100%;*/
 }
