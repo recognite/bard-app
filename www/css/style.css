@@ -14,6 +14,28 @@ body .pane, .menu, .view, .list, .item       {
     background: transparent;
 }
 */
+
+body .pane, .menu, .view, .list, .item {
+	background-color: #071a29;
+}
+
+.bard-panel {
+	background-color: #071a29;
+	text-align: center;
+	padding: 40px;
+	border: 2px solid #848d96;
+}
+
+.bard-panel h2 {
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.bard-panel h3 {
+	font-style: italic;
+	color: #ffffff;
+}
+
 .slider {
   /*height: 100%;*/
 }
@@ -34,13 +56,18 @@ body .pane, .menu, .view, .list, .item       {
   text-align: center;
 }
 
+/* Buttons */
+
+
 
 /* Journey stuff */
 .list .item.item-accordion {
-  line-height: 38px;
-  padding-top: 0;
-  padding-bottom: 0;
-  transition: 0.09s all linear;
+	line-height: 38px;
+	padding-top: 0;
+	padding-bottom: 0;
+	transition: 0.09s all linear;
+	background-color: #848d96;
+	color: #000000;
 }
 .list .item.item-accordion.ng-hide {
   line-height: 0px;
@@ -50,3 +77,19 @@ body .pane, .menu, .view, .list, .item       {
   display: block !important;
 }
 
+.list .item.item-stable {
+	background-color: #071a29;
+	color: #ffffff;
+}
+
+.list .item.item-stable.active {
+	/*background-color: #556622;*/
+	background-image: linear-gradient(bottom, #848d96 50%, #071a29 50%);
+/* Not sure we need the below */
+	background-image: -o-linear-gradient(bottom, #848d96 50%, #071a29 50%);
+	background-image: -moz-linear-gradient(bottom, #848d96 50%, #071a29 50%);
+	background-image: -webkit-linear-gradient(bottom, #848d96 50%, #071a29 50%);
+	background-image: -ms-linear-gradient(bottom, #848d96 50%, #071a29 50%);
+/* Text colour */
+	color: #ffffff;
+}
