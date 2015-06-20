@@ -56,7 +56,8 @@ angular.module('ionicApp', ['ionic'])
 		url: "/archetypes",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/archetype.html"
+				templateUrl: "templates/archetype.html",
+				controller: "ArchetypeController"
 			}
 		}
     })
@@ -65,7 +66,8 @@ angular.module('ionicApp', ['ionic'])
 		url: "/journeys",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/journeys.html"
+				templateUrl: "templates/journeys.html",
+				controller: 'JourneyController'
 			}
 		}
     })
@@ -74,7 +76,8 @@ angular.module('ionicApp', ['ionic'])
 		url: "/stories",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/story.html"
+				templateUrl: "templates/story.html",
+				controller: 'StoryController'
 			}
 		}
     })
@@ -102,7 +105,67 @@ angular.module('ionicApp', ['ionic'])
   
 })
 
-.controller('MainController', function($scope) {  
+
+.controller('MainController', function($scope) {
+
+})
+
+
+.controller('StoryController', function($scope) {
+	$scope.categories = [
+		{title: "All"},
+		{title: "Mythological Cycle"},
+		{title: "Ulster Cycle"},
+		{title: "Fenian Cycle"},
+		{title: "King Cycle"}
+	];
+
+	$scope.results = [
+		{name: "Aenghus Og", img: "ionic.png", cycle: "Mythological Cycle", story: "Midhir & Etain"},
+		{name: "Aife", img: "ionic.png", cycle: "Ulster Cycle", story: "Tain"},
+		{name: "Allil", img: "ionic.png", cycle: "Mythological Cycle", story: "Midhir & Etain"},
+		{name: "Aoife", img: "ionic.png", cycle: "Mythological Cycle", story: "Children Of Lir"},
+		{name: "Achtan", img: "ionic.png", cycle: "King Cycle", story: "Cormac mac Airt"},
+		{name: "Balor", img: "ionic.png", cycle: "Mythological Cycle", story: "Battle Of Moytura"}
+	];
+})
+
+
+.controller('ArchetypeController', function($scope) {
+	$scope.archetypes = [
+		{category: "Transcendance", roles: [
+				{title: "Hero/Heroine", img: "ionic.png"},
+				{title: "Leader/King", img: "ionic.png"},
+				{title: "Warrior", img: "ionic.png"},
+				{title: "Virgin", img: "ionic.png"}
+			]
+		},
+		{category: "Relationship", roles: [
+				{title: "Guide/Teacher", img: "ionic.png"},
+				{title: "Carer/Mother", img: "ionic.png"},
+				{title: "Sage/Father", img: "ionic.png"},
+				{title: "Partner/Friend", img: "ionic.png"}
+			]
+		},
+		{category: "Physical Reality", roles: [
+				{title: "Hero/Heroine", img: "ionic.png"},
+				{title: "Leader/King", img: "ionic.png"},
+				{title: "Warrior", img: "ionic.png"},
+				{title: "Virgin", img: "ionic.png"}
+			]
+		},
+		{category: "Transcendance", roles: [
+				{title: "Hero/Heroine", img: "ionic.png"},
+				{title: "Leader/King", img: "ionic.png"},
+				{title: "Warrior", img: "ionic.png"},
+				{title: "Virgin", img: "ionic.png"}
+			]
+		}
+	];
+})
+
+
+.controller('JourneyController', function($scope) {  
 	$scope.groups = [
 		{name: "Hero's Journey", items: [
 				{title: 'Hero #1', image: 'ionic.png'},
@@ -150,31 +213,5 @@ angular.module('ionicApp', ['ionic'])
 	};
 })
 
-.controller('JourneyController', function($scope) {
-	$scope.groups = [];
-	for (var i=0; i<5; i++) {
-		$scope.groups[i] = {
-			name: i,
-			items: []
-		};
-		for (var j=0; j<3; j++) {
-			$scope.groups[i].items.push(i + '-' + j);
-		}
-	}
 
-	/*
-	 * if given group is the selected group, deselect it
-	 * else, select the given group
-	 */
-	$scope.toggleGroup = function(group) {
-		if ($scope.isGroupShown(group)) {
-			$scope.shownGroup = null;
-		} else {
-			$scope.shownGroup = group;
-		}
-	};
-	$scope.isGroupShown = function(group) {
-		return $scope.shownGroup === group;
-	};
-})
 

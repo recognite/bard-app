@@ -17,6 +17,38 @@ body .pane, .menu, .view, .list, .item       {
 
 body .pane, .menu, .view, .list, .item {
 	background-color: #071a29;
+	color: #ffffff;
+}
+
+h1, h2, h3 {
+	color: #ffffff;
+}
+
+.rounded {
+	border-radius: 25px;
+	border: 1px solid #ffffff;
+	background-color: #071a29;
+	color: #ffffff;
+}
+
+.selected {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+/* Stories */
+#searchTerm {
+	color: #ffffff;
+}
+
+.item-input-wrapper, .item-input-inset {
+	background-color: #071a29;
+	color: #ffffff;
+	border: 1px solid #ffffff;
+}
+
+.bard-box {
+	margin-bottom: 40px;
 }
 
 .bard-panel {
@@ -28,16 +60,14 @@ body .pane, .menu, .view, .list, .item {
 
 .bard-panel h2 {
 	font-weight: bold;
-	color: #ffffff;
 }
 
 .bard-panel h3 {
 	font-style: italic;
-	color: #ffffff;
 }
 
 .slider {
-  /*height: 100%;*/
+  height: 100%;
 }
 
 .slider-pager {
@@ -45,16 +75,33 @@ body .pane, .menu, .view, .list, .item {
 	bottom: initial;
 }
 
+.slider-pager-page {
+	color: #cccccc !important;
+}
+
 .slider-pager-page.active {
-	color: #fff;	/* white */
+	color: #ffffff;
 }
 
 .slider-slide {
-  padding-top: 80px;
-  color: #000;
-  background-color: #fff;
-  text-align: center;
+	padding-top: 80px;
+	color: #ffffff;
+	background-color: #071a29;
+/*	background-color: #cc0000;*/
+	text-align: center;
 }
+
+/* Archetypes */
+.bard-arche-span {
+	width: 100%;
+}
+
+.bard-archetype {
+	background-color: #071a29;
+	color: #ffffff;
+	width: 100%;
+}
+
 
 /* Buttons */
 

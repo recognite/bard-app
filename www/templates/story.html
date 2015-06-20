@@ -1,6 +1,55 @@
 <ion-view title="STORIES">
-	<ion-content class="has-header">
-		<h1>Stories</h1>
-		<p>Stories content goes here!</p>
+	<ion-content>
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+				<input type="search" id="searchTerm" placeholder="Search for a story or character" />
+			</label>
+			<button class="button button-clear">Cancel</button>
+		</div>
+
+
+<!--		<div class="bar bar-subheader"> 
+			<div class="list">
+				<div class="item item-input">
+					<label class="item-input-wrapper">
+	<!--				<label class="item-input"> -->
+<!--						<i class="icon ion-search placeholder-icon"></i>
+						<input type="text" id="searchTerm" placeholder="Search for a story or character">
+					</label>
+					<button class="button button-small">Cancel</button>
+				</div>
+			</div>
+<!--		</div> -->
+
+		<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+			<ion-tab title="Stories">
+
+				<div class="list">
+					<div class="bard-panel">
+						<br/>
+						<h2>Filter by:</h2>
+						<div ng-repeat="category in categories" style="float:left">
+							<span class="button rounded" href="#">{{category.title}}</span> 
+						</div>
+						<br/>
+					</div>
+
+					<div ng-repeat="result in results">
+						<a class="item item-avatar" href="#">
+							<img src="img/{{result.img}}">
+							<h2>{{result.name}}</h2>
+							<p><span class="button rounded selected" href="#">{{result.cycle}}</span> 
+							   <span class="button rounded selected" href="#">{{result.story}}</span></p>
+						</a>
+					</div>
+				</div>
+			</ion-tab>
+
+			<ion-tab title="Characters">
+
+			</ion-tab>
+		</ion-tabs>
+
 	</ion-content>
 </ion-view>
