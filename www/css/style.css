@@ -20,6 +20,12 @@ body .pane, .menu, .view, .list, .item {
 	color: #ffffff;
 }
 
+.bard-link {
+	text-align: center;
+	color: #ffffff;
+	text-decoration: none;
+}
+
 h1, h2, h3 {
 	color: #ffffff;
 }
