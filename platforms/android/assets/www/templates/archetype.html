@@ -1,0 +1,46 @@
+<ion-view view-title="ARCHETYPES">
+	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+		<ion-tab title="Archetypes">
+			<!-- Tab 1 content -->
+			<ion-content>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<div class="list">
+				<div class="bard-panel">
+					<h1>16 Archetypal Roles</h1>
+					<p>Learn about the great heroic archetypes and characters that carry the wisdom of the people.</p>
+				</div>
+
+				<div ng-repeat="archetype in archetypes">
+					<h2>{{archetype.category}}</h2>
+					<div class="button-bar">
+						<span class="bard-arche-span" ng-repeat="role in archetype.roles">
+						<a class="button bard-archetype">
+							<img class="" src="img/{{role.img}}" alt="" height="50" />
+							<p class="">{{role.title}}</p>
+						</a>
+						</span>
+					</div>
+
+				</div>
+			</div>
+			</ion-content>
+		</ion-tab>
+
+		<ion-tab title="Archetype Test">
+			<!-- Tab 2 content -->
+			<ion-content>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+			<br/>
+				<h2>Quiz</h2>
+				<p>Please take the archetype quiz</p>
+			</ion-content>
+		</ion-tab>
+	</ion-tabs>
+</ion-view>
