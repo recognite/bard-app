@@ -10,6 +10,18 @@
 			<h2>Your Progress</h2>
 		</div>
 
+		<div class="list">
+			<div class="list">
+				<div class="item item-thumbnail-left">
+					<img src="img/ionic.png" height="120">
+					<h2>Why Myth?</h2>
+					<p class="slant">An Introduction to Bardic Thinking</p><br/>
+					<ol class="progressbard" ng-repeat="module in modules">
+						<li class="{{module.progress}}"></li>
+					</ol>
+				</div>
+			</div>
+		</div>
 
 
 	</ion-content>

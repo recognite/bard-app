@@ -1,6 +1,29 @@
 <ion-view title="CHARACTERS">
-	<ion-content class="has-header">
-		<h1>Characters</h1>
-		<p>Characters content goes here!</p>
+	<ion-content>
+		<div class="bar bar-header item-input-inset">
+			<label class="item-input-wrapper">
+			<i class="icon ion-ios-search placeholder-icon"></i>
+				<input type="search" id="searchTerm" placeholder="Search for a character" ng-model="searchCharacter" />
+			</label>
+			<button class="button button-clear">Cancel</button>
+		</div>
+
+	  <ion-list>
+		<div class="bard-panel">
+			<br/>
+			<p>Join the mythological characters of Ancient Ireland</p>
+		</div>
+
+		<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='PlayerController'>
+		  <ion-item class="item-stable" ng-click="toggleGroup(character)" ng-class="{active: isGroupShown(character)}">
+			{{character.name}}
+		  </ion-item>
+		  <ion-item class="item-accordion" ng-repeat="story in character.stories" ng-show="isGroupShown(character)" ng-click="openModal()">
+			<img src="img/{{story.img}}" alt="image" height="35" />
+		    {{story.title}}
+		  </ion-item>
+		</div>
+	  </ion-list>
+
 	</ion-content>
 </ion-view>
