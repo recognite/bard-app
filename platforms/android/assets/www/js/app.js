@@ -128,6 +128,46 @@ angular.module('ionicApp', ['ionic'])
 		{name: "Achtan", img: "ionic.png", cycle: "King Cycle", story: "Cormac mac Airt"},
 		{name: "Balor", img: "ionic.png", cycle: "Mythological Cycle", story: "Battle Of Moytura"}
 	];
+
+	$scope.stories = [
+		{title: "Midhir & Etain", link: "", img: "ionic.png"},
+		{title: "Tain", link: "", img: "ionic.png"},
+		{title: "Children Of Lir", link: "", img: "ionic.png"},
+		{title: "Cormac mac Airt", link: "", img: "ionic.png"},
+		{title: "Battle Of Moytura", link: "", img: "ionic.png"}
+	];
+})
+
+.controller('PlayerController', function($scope, $ionicModal) {
+	$ionicModal.fromTemplateUrl('templates/story-player.html', {
+		scope: $scope,
+		animation: 'slide-in-right'
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	
+	$scope.openModal = function() {
+		$scope.modal.show();
+	};
+
+	$scope.closeModal = function() {
+		$scope.modal.hide();
+	};
+
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	});
+
+	// Execute action on hide modal
+	$scope.$on('modal.hidden', function() {
+		// Execute action
+	});
+
+	// Execute action on remove modal
+	$scope.$on('modal.removed', function() {
+		// Execute action
+	});
 })
 
 

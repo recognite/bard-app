@@ -86,7 +86,8 @@ angular.module('ionicApp', ['ionic'])
 		url: "/characters",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/character.html"
+				templateUrl: "templates/character.html",
+				controller: 'CharacterController'
 			}
 		}
     })
@@ -111,6 +112,53 @@ angular.module('ionicApp', ['ionic'])
 })
 
 
+.controller('CharacterController', function($scope) {
+
+	$scope.characters = [
+		{name: "Aengus Og", link:"", img: "ionic.png", stories: [
+			{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
+		]},
+		{name: "Allil", link:"", img: "ionic.png", stories: [
+			{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
+		]},
+		{name: "Aoife", link:"", img: "ionic.png", stories: [
+			{title: "Children Of Lir", link: "", img: "ionic.png", cycle: "Mythological"}
+		]},
+		{name: "Balor", link:"", img: "", stories: [
+			{title: "Battle Of Moytura", link: "", img: "ionic.png", cycle: "Mythological"}
+		]},
+		{name: "Cuchulainn", link:"", img: "ionic.png", stories: [
+			{title: "Setanta Joins the Boy's Troop", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "How Cuchulainn Got his Name", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "Cuchulainn Taking Up Of Arms", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "Cuchulainn Wooing of Emer", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "Cuchulainn's Training with Scathach", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Champion's Portion 1", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Champion's Portion 2", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Champion's Portion 3", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Death of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Sickbed of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
+			{title: "The Son of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"}
+		]}
+	];
+
+	/*
+	 * if given group is the selected group, deselect it
+	 * else, select the given group
+	 */
+	$scope.toggleGroup = function(group) {
+		if ($scope.isGroupShown(group)) {
+			$scope.shownGroup = null;
+		} else {
+			$scope.shownGroup = group;
+		}
+	};
+	$scope.isGroupShown = function(group) {
+		return $scope.shownGroup === group;
+	};
+})
+
+
 .controller('StoryController', function($scope) {
 	$scope.categories = [
 		{title: "All"},
@@ -120,21 +168,33 @@ angular.module('ionicApp', ['ionic'])
 		{title: "King Cycle"}
 	];
 
-	$scope.results = [
-		{name: "Aenghus Og", img: "ionic.png", cycle: "Mythological Cycle", story: "Midhir & Etain"},
-		{name: "Aife", img: "ionic.png", cycle: "Ulster Cycle", story: "Tain"},
-		{name: "Allil", img: "ionic.png", cycle: "Mythological Cycle", story: "Midhir & Etain"},
-		{name: "Aoife", img: "ionic.png", cycle: "Mythological Cycle", story: "Children Of Lir"},
-		{name: "Achtan", img: "ionic.png", cycle: "King Cycle", story: "Cormac mac Airt"},
-		{name: "Balor", img: "ionic.png", cycle: "Mythological Cycle", story: "Battle Of Moytura"}
-	];
-
 	$scope.stories = [
-		{title: "Midhir & Etain", link: "", img: "ionic.png"},
-		{title: "Tain", link: "", img: "ionic.png"},
-		{title: "Children Of Lir", link: "", img: "ionic.png"},
-		{title: "Cormac mac Airt", link: "", img: "ionic.png"},
-		{title: "Battle Of Moytura", link: "", img: "ionic.png"}
+		{title: "Finn and the Fianna", link: "", img: "ionic.png", cycle: "Fenian"},
+		{title: "Finn birth and boyhood", link: "", img: "ionic.png", cycle: "Fenian"},
+		{title: "Oisin in Tir na nOg", link: "", img: "ionic.png", cycle: "Fenian"},
+		{title: "Conaire Mor", link: "", img: "ionic.png", cycle: "Kings"},
+		{title: "Cormac Mac Airt", link: "", img: "ionic.png", cycle: "Kings"},
+		{title: "Mongan", link: "", img: "ionic.png", cycle: "Kings"},
+		{title: "Niall of the Nine Hostages", link: "", img: "ionic.png", cycle: "Kings"},
+		{title: "Cesaire (Invasion 1)", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "Partholon (Invasion 2)", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "Nemed and the Fir Bolg (Invasion 3)", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "The Tuatha de Danaan (Invasion 4)", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "The Sons of Mil (Invasion 5)", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "Midir and Etain", link: "", img: "ionic.png", cycle: "Mythological"},
+		{title: "Setanta Joins the Boy's Troop", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "How Cuchulainn Got his Name", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "Cuchulainn Taking Up Of Arms", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "Cuchulainn Wooing of Emer", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "Cuchulainn's Training with Scathach", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "Deirdre of the Sorrows", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "Ferdia at the Ford", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Champion's Portion 1", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Champion's Portion 2", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Champion's Portion 3", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Death of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Sickbed of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
+		{title: "The Son of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"}
 	];
 })
 
@@ -174,17 +234,17 @@ angular.module('ionicApp', ['ionic'])
 .controller('ArchetypeController', function($scope) {
 	$scope.archetypes = [
 		{category: "Transcendance", roles: [
-				{title: "Hero/Heroine", img: "ionic.png"},
-				{title: "Leader/King", img: "ionic.png"},
+				{title: "Hero / Heroine", img: "ionic.png"},
+				{title: "Leader / King", img: "ionic.png"},
 				{title: "Warrior", img: "ionic.png"},
 				{title: "Virgin", img: "ionic.png"}
 			]
 		},
 		{category: "Relationship", roles: [
-				{title: "Guide/Teacher", img: "ionic.png"},
-				{title: "Carer/Mother", img: "ionic.png"},
-				{title: "Sage/Father", img: "ionic.png"},
-				{title: "Partner/Friend", img: "ionic.png"}
+				{title: "Guide / Teacher", img: "ionic.png"},
+				{title: "Carer / Mother", img: "ionic.png"},
+				{title: "Sage / Father", img: "ionic.png"},
+				{title: "Partner / Friend", img: "ionic.png"}
 			]
 		},
 		{category: "Physical Reality", roles: [
