@@ -249,6 +249,8 @@ angular.module('ionicApp', ['ionic'])
 	$scope.$on('modal.removed', function() {
 		// Execute action
 	});
+
+	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
 })
 
 
