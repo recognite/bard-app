@@ -72,6 +72,11 @@ h1, h2, h3 {
 	font-style: italic;
 }
 
+.title {
+	color: #FF0000;
+}
+
+/* Slides */
 .slider {
   height: 100%;
 }
@@ -145,4 +150,23 @@ h1, h2, h3 {
 	background-image: -ms-linear-gradient(bottom, #848d96 50%, #071a29 50%);
 /* Text colour */
 	color: #ffffff;
+}
+
+/* Home Screen */
+.progressbard {
+    list-style: none;
+    position: relative;
+}
+.progressbard li {
+    height: 15px;
+    width: 5%;
+    list-style: none;
+	border-radius: 15px;
+    float: left;
+	margin-right: 5px;
+    background: #e9e9e9;
+}
+
+.progressbard li.done {
+    background: #bcd5b9;
 }

@@ -38,7 +38,8 @@ angular.module('ionicApp', ['ionic'])
 		url: "/home",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/home.html"
+				templateUrl: "templates/home.html",
+				controller: "HomeController"
 			}
 		}
     })
@@ -109,6 +110,26 @@ angular.module('ionicApp', ['ionic'])
 
 .controller('MainController', function($scope) {
 
+})
+
+
+.controller('HomeController', function($scope) {
+	$scope.modules = [
+		{progress: "done"},
+		{progress: "done"},
+		{progress: "done"},
+		{progress: "done"},
+		{progress: "todo"},
+		{progress: "todo"},
+		{progress: "todo"},
+		{progress: "todo"},
+		{progress: "todo"},
+		{progress: "todo"}
+	];
+
+	/*
+	 * Functions for incrementing progress go here!
+	 */
 })
 
 
@@ -228,6 +249,8 @@ angular.module('ionicApp', ['ionic'])
 	$scope.$on('modal.removed', function() {
 		// Execute action
 	});
+
+	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
 })
 
 
