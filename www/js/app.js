@@ -217,6 +217,56 @@ angular.module('ionicApp', ['ionic'])
 		{title: "The Sickbed of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
 		{title: "The Son of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"}
 	];
+
+
+	$scope.myths = [
+		{cycle: "Mythological", stories: [
+			{title: "Cian And Eithlinn", link: ""},
+			{title: "Invasions 1 - Cesaire", link: ""},
+			{title: "Invasions 2 - Partholon", link: ""},
+			{title: "Invasions 3 - Nemed And The Fir Bolg", link: ""},
+			{title: "Invasions 4 - The First Battle Of Moy Tura", link: ""},
+			{title: "Invasions 5 - The Second Battle Of Moy Tura", link: ""},
+			{title: "Invasions 6 - The Sons Of Mil And The Battle Of Tailtiu", link: ""},
+			{title: "Midir And Etain", link: ""},
+			{title: "The Dagda's Harp", link: ""},
+			{title: "The Voyage Of Bran", link: ""},
+			{title: "Book Of Invasions 1", link: ""},
+			{title: "Book Of Invasions 2", link: ""},
+			{title: "Book Of Invasions 3", link: ""},
+			{title: "Book Of Invasions 4", link: ""},
+			{title: "Cormac Mac Art 1", link: ""},
+			{title: "Niall Of The Nine Hostages", link: ""}
+		]},
+		{cycle: "Fenian", stories: [
+			{title: "Diarmuid And Grainne", link: ""},
+			{title: "Finn and the Fianna", link: ""},
+			{title: "Finn - Birth And Boyhood", link: ""},
+			{title: "Oisin In Tir na nOg", link: ""}
+		]},
+		{cycle: "Kings", stories: [
+			{title: "Conaire Mor", link: ""},
+			{title: "Cormac Mac Art", link: ""},
+			{title: "Labhraidh Loingseach", link: ""},
+			{title: "Mongan", link: ""},
+			{title: "Niall Of The Nine Hostages", link: ""}
+		]},
+		{cycle: "Ulster", stories: [
+			{title: "Setanta Joins The Boy's Troop", link: ""},
+			{title: "How Cuchulainn Got His Name", link: ""},
+			{title: "Cuchulainn - Taking Up Of Arms", link: ""},
+			{title: "Cuchulainn - Wooing Of Emer", link: ""},
+			{title: "Cuchulainn's Training With Scathach", link: ""},
+			{title: "Deirdre Of The Sorrows", link: ""},
+			{title: "Ferdia At The Ford", link: ""},
+			{title: "The Champion's Portion 1", link: ""},
+			{title: "The Champion's Portion 2", link: ""},
+			{title: "The Champion's Portion 3", link: ""},
+			{title: "The Death Of Cuchulainn", link: ""},
+			{title: "The Sickbed Of Cuchulainn", link: ""},
+			{title: "The Son Of Cuchulainn - Death Of Connla", link: ""}
+		]}
+	];
 })
 
 .controller('PlayerController', function($scope, $ionicModal) {

@@ -72,10 +72,6 @@ h1, h2, h3 {
 	font-style: italic;
 }
 
-.title {
-	color: #FF0000;
-}
-
 /* Slides */
 .slider {
   height: 100%;
@@ -100,6 +96,10 @@ h1, h2, h3 {
 	background-color: #071a29;
 /*	background-color: #cc0000;*/
 	text-align: center;
+}
+
+.bard-footer {
+	background-color: transparent;
 }
 
 /* Archetypes */
@@ -150,6 +150,11 @@ h1, h2, h3 {
 	background-image: -ms-linear-gradient(bottom, #848d96 50%, #071a29 50%);
 /* Text colour */
 	color: #ffffff;
+}
+
+.list .item-divider {
+	background-color: #fffacd;	/* LemonChiffon */
+	color: #000000;
 }
 
 /* Home Screen */
