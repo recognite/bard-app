@@ -72,6 +72,10 @@ h1, h2, h3 {
 	font-style: italic;
 }
 
+.bard-title {
+	color: #ff0000;
+}
+
 /* Slides */
 .slider {
   height: 100%;
@@ -100,6 +104,7 @@ h1, h2, h3 {
 
 .bard-footer {
 	background-color: transparent;
+	padding-bottom: 5%;
 }
 
 /* Archetypes */

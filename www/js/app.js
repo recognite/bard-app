@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic', 'ionicApp.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -269,7 +269,7 @@ angular.module('ionicApp', ['ionic'])
 	];
 })
 
-.controller('PlayerController', function($scope, $ionicModal) {
+.controller('PlayerController', function($scope, $ionicModal, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/story-player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -300,7 +300,77 @@ angular.module('ionicApp', ['ionic'])
 		// Execute action
 	});
 
-	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
+	$scope.playStory = function(story) {
+		$scope.player = story;
+		$scope.openModal();
+		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+			//console.log(a, b);
+			$scope.position = Math.ceil(a / b * 100);
+			if (a < 0) {
+				$scope.stopAudio();
+			}
+			if (!$scope.$$phase) $scope.$apply();
+		});
+	};
+
+//	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
+	$scope.loaded = true;
+	$scope.isPlaying = true;
+
+	$scope.resumeAudio = function() {
+		AudioSvc.resumeAudio();
+		$scope.isPlaying = true;
+	};
+
+	$scope.pauseAudio = function() {
+		AudioSvc.pauseAudio();
+		$scope.isPlaying = false;
+	};
+
+	$scope.stopAudio = function() {
+		AudioSvc.stopAudio();
+		$scope.loaded = false;
+		$scope.isPlaying = false;
+	};	
+
+/*
+	$ionicPlatform.ready(function() {
+
+		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+			//console.log(a, b);
+			$scope.position = Math.ceil(a / b * 100);
+			if (a < 0) {
+				$scope.stopAudio();
+			}
+			if (!$scope.$$phase) $scope.$apply();
+		});
+ 
+		$scope.loaded = true;
+		$scope.isPlaying = true;
+		$scope.name = file.name;
+		$scope.path = file.fullPath;
+
+		// show the player
+		$scope.player();
+
+		$scope.pauseAudio = function() {
+			AudioSvc.pauseAudio();
+			$scope.isPlaying = false;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+		$scope.resumeAudio = function() {
+			AudioSvc.resumeAudio();
+			$scope.isPlaying = true;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+		$scope.stopAudio = function() {
+			AudioSvc.stopAudio();
+			$scope.loaded = false;
+			$scope.isPlaying = false;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+	}
+*/
 })
 
 
