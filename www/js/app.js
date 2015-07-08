@@ -320,17 +320,20 @@ angular.module('ionicApp', ['ionic', 'ionicApp.services'])
 	$scope.resumeAudio = function() {
 		AudioSvc.resumeAudio();
 		$scope.isPlaying = true;
+		if (!$scope.$$phase) $scope.$apply();
 	};
 
 	$scope.pauseAudio = function() {
 		AudioSvc.pauseAudio();
 		$scope.isPlaying = false;
+		if (!$scope.$$phase) $scope.$apply();
 	};
 
 	$scope.stopAudio = function() {
 		AudioSvc.stopAudio();
 		$scope.loaded = false;
 		$scope.isPlaying = false;
+		if (!$scope.$$phase) $scope.$apply();
 	};	
 
 /*

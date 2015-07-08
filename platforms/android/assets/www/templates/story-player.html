@@ -1,12 +1,28 @@
 <ion-modal-view>
 	<ion-header-bar>
-		<h1 class="title">{{player.title}}</h1>
+		<h1 class="bard-title">{{player.title}}</h1>
 	</ion-header-bar>
 	<ion-content>
+		<!--
+			AK: This doesn't work on an actual device. The controls are greyed out. The audio doesn't play.
+
 		<audio controls>
 			<source ng-src="{{player.link}}" type="audio/mpeg">
 			Your browser does not support the audio element.
 		</audio>
+		
+		<div class="tabs tabs-secondary tabs-icon-left">
+-->
+			<a class="button" href="javascript:" ng-click="resumeAudio()" ng-hide="isPlaying">
+				<i class="icon ion-ios-play"></i> Play
+			</a>
+			<a class="button" href="javascript:" ng-click="pauseAudio()" ng-show="isPlaying">
+				<i class="icon ion-pause"></i> Pause
+			</a>
+			<a class="button" href="javascript:" ng-click="stopAudio()" ng-show="isPlaying">
+				<i class="icon ion-stop"></i> Stop
+			</a>
+
 <br/>
 		<button ng-click="closeModal()">Close</button>
 	</ion-content>

@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic', 'ionicApp.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -217,9 +217,59 @@ angular.module('ionicApp', ['ionic'])
 		{title: "The Sickbed of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
 		{title: "The Son of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"}
 	];
+
+
+	$scope.myths = [
+		{cycle: "Mythological", stories: [
+			{title: "Cian And Eithlinn", link: ""},
+			{title: "Invasions 1 - Cesaire", link: ""},
+			{title: "Invasions 2 - Partholon", link: ""},
+			{title: "Invasions 3 - Nemed And The Fir Bolg", link: ""},
+			{title: "Invasions 4 - The First Battle Of Moy Tura", link: ""},
+			{title: "Invasions 5 - The Second Battle Of Moy Tura", link: ""},
+			{title: "Invasions 6 - The Sons Of Mil And The Battle Of Tailtiu", link: ""},
+			{title: "Midir And Etain", link: ""},
+			{title: "The Dagda's Harp", link: ""},
+			{title: "The Voyage Of Bran", link: ""},
+			{title: "Book Of Invasions 1", link: ""},
+			{title: "Book Of Invasions 2", link: ""},
+			{title: "Book Of Invasions 3", link: ""},
+			{title: "Book Of Invasions 4", link: ""},
+			{title: "Cormac Mac Art 1", link: ""},
+			{title: "Niall Of The Nine Hostages", link: ""}
+		]},
+		{cycle: "Fenian", stories: [
+			{title: "Diarmuid And Grainne", link: ""},
+			{title: "Finn and the Fianna", link: ""},
+			{title: "Finn - Birth And Boyhood", link: ""},
+			{title: "Oisin In Tir na nOg", link: ""}
+		]},
+		{cycle: "Kings", stories: [
+			{title: "Conaire Mor", link: ""},
+			{title: "Cormac Mac Art", link: ""},
+			{title: "Labhraidh Loingseach", link: ""},
+			{title: "Mongan", link: ""},
+			{title: "Niall Of The Nine Hostages", link: ""}
+		]},
+		{cycle: "Ulster", stories: [
+			{title: "Setanta Joins The Boy's Troop", link: ""},
+			{title: "How Cuchulainn Got His Name", link: ""},
+			{title: "Cuchulainn - Taking Up Of Arms", link: ""},
+			{title: "Cuchulainn - Wooing Of Emer", link: ""},
+			{title: "Cuchulainn's Training With Scathach", link: ""},
+			{title: "Deirdre Of The Sorrows", link: ""},
+			{title: "Ferdia At The Ford", link: ""},
+			{title: "The Champion's Portion 1", link: ""},
+			{title: "The Champion's Portion 2", link: ""},
+			{title: "The Champion's Portion 3", link: ""},
+			{title: "The Death Of Cuchulainn", link: ""},
+			{title: "The Sickbed Of Cuchulainn", link: ""},
+			{title: "The Son Of Cuchulainn - Death Of Connla", link: ""}
+		]}
+	];
 })
 
-.controller('PlayerController', function($scope, $ionicModal) {
+.controller('PlayerController', function($scope, $ionicModal, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/story-player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -250,7 +300,77 @@ angular.module('ionicApp', ['ionic'])
 		// Execute action
 	});
 
-	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
+	$scope.playStory = function(story) {
+		$scope.player = story;
+		$scope.openModal();
+		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+			//console.log(a, b);
+			$scope.position = Math.ceil(a / b * 100);
+			if (a < 0) {
+				$scope.stopAudio();
+			}
+			if (!$scope.$$phase) $scope.$apply();
+		});
+	};
+
+//	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
+	$scope.loaded = true;
+	$scope.isPlaying = true;
+
+	$scope.resumeAudio = function() {
+		AudioSvc.resumeAudio();
+		$scope.isPlaying = true;
+	};
+
+	$scope.pauseAudio = function() {
+		AudioSvc.pauseAudio();
+		$scope.isPlaying = false;
+	};
+
+	$scope.stopAudio = function() {
+		AudioSvc.stopAudio();
+		$scope.loaded = false;
+		$scope.isPlaying = false;
+	};	
+
+/*
+	$ionicPlatform.ready(function() {
+
+		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+			//console.log(a, b);
+			$scope.position = Math.ceil(a / b * 100);
+			if (a < 0) {
+				$scope.stopAudio();
+			}
+			if (!$scope.$$phase) $scope.$apply();
+		});
+ 
+		$scope.loaded = true;
+		$scope.isPlaying = true;
+		$scope.name = file.name;
+		$scope.path = file.fullPath;
+
+		// show the player
+		$scope.player();
+
+		$scope.pauseAudio = function() {
+			AudioSvc.pauseAudio();
+			$scope.isPlaying = false;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+		$scope.resumeAudio = function() {
+			AudioSvc.resumeAudio();
+			$scope.isPlaying = true;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+		$scope.stopAudio = function() {
+			AudioSvc.stopAudio();
+			$scope.loaded = false;
+			$scope.isPlaying = false;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+	}
+*/
 })
 
 

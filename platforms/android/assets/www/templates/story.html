@@ -13,9 +13,17 @@
 				<br/>
 				<p>Discover the ancient stories of mythology</p>
 			</div>
-
+<!--
 			<div ng-repeat="story in stories | filter:searchStory" ng-controller='PlayerController'>
 				<div class="item" ng-click="openModal()">{{story.title}}</div>
+			</div>
+ -->
+			<div ng-repeat="myth in myths" ng-controller="PlayerController">
+				<div class="item item-divider">{{myth.cycle}}</div>
+				<div ng-repeat="story in myth.stories | filter:searchStory">
+					<!--<div class="item" ng-click="openModal()">{{story.title}}</div> -->
+					<div class="item" ng-click="playStory(story)">{{story.title}}</div>
+				</div> 
 			</div>
 		</div>
 
