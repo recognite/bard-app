@@ -76,6 +76,34 @@ h1, h2, h3 {
 	color: #ff0000;
 }
 
+/* Story Slider */
+.story-slider {
+	height: 40%;
+	width: 86%;
+	margin: 0 auto;
+}
+
+.story-slider .slider {
+	height: 100%;
+	overflow: visible;
+}
+
+.story-slider .slider-slide {
+	overflow: hidden;
+	color: #000;
+/*	background-color: #ccc;*/
+	text-align: center;
+}
+
+.story-slider ion-slide {
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+.story-slider ion-slide:first-child { padding-left: 0; }
+.story-slider ion-slide:last-child { padding-left: 0; }
+.story-slider ion-slide:nth-child(2) { z-index: 1; }
+
 /* Slides */
 .slider {
 	height: 100%;
