@@ -1,6 +1,9 @@
 <ion-modal-view>
 	<ion-header-bar>
-		<h1 class="bard-title">{{player.title}}</h1>
+		<!--<button ng-click="closeModal()"><i class="icon ion-close"></i></button> -->
+			<a class="button" href="javascript:" ng-click="closeModal()">
+				<i class="icon ion-close"></i>
+			</a>	
 	</ion-header-bar>
 	<ion-content>
 		<!--
@@ -24,6 +27,7 @@
 			</a>
 
 <br/>
-		<button ng-click="closeModal()">Close</button>
+		<h1 class="bard-title">{{player.title}}</h1>
+
 	</ion-content>
 </ion-modal-view>

@@ -5,11 +5,18 @@
 			<h1>{{slide.title}}</h1>
 			<p>{{slide.description}}</p>
 
+
 			<div class="bar bar-footer bard-footer">
 				<div class="title">
-					<a class="button button-full button-dark" href="{{slide.buttonLink}}">{{slide.buttonText}}</a>
+					<div ng-show="{{slide.button}}">
+						<a class="button button-full button-dark" href="{{slide.buttonLink}}">{{slide.buttonText}}</a>
+					</div>
+					<div ng-hide="{{slide.button}}">
+						<p>{{slide.buttonText}}</p>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</ion-slide>
 </ion-slide-box>

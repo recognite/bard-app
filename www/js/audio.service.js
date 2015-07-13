@@ -1,4 +1,4 @@
-angular.module('ionicApp.services', [])
+angular.module('BardApp.services', [])
  
 .service('AudioSvc', [function() {
  
