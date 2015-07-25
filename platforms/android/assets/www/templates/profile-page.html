@@ -1,0 +1,16 @@
+<ion-modal-view class="profile-page">
+	<ion-header-bar class="profile-header">
+		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="closeModal()"></button>
+		<!--	<a class="button" href="javascript:" ng-click="closeModal()">
+				<i class="icon ion-close"></i>
+			</a>	 -->
+	</ion-header-bar>
+	<ion-content>
+		<img class="profile-image" src="img/{{profile.img}}">
+		<h1 class="profile-title">{{profile.name}}</h1>
+		<p class="profile-caption"></p>
+
+		<p class="profile-mainText"></p>
+
+	</ion-content>
+</ion-modal-view>

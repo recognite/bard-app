@@ -126,7 +126,7 @@ h1, h2, h3 {
 /* Story Slider */
 .story-slider {
 	height: 40%;
-	width: 86%;
+	width: 56%;
 	margin: 0 auto;
 }
 
@@ -143,8 +143,13 @@ h1, h2, h3 {
 }
 
 .story-slider ion-slide {
+	background: transparent;
 	padding-right: 3px;
 	padding-left: 3px;
+}
+
+.story-slider ion-slide img {
+	width: 60%;
 }
 
 .story-slider ion-slide:first-child { padding-left: 0; }
@@ -257,4 +262,70 @@ h1, h2, h3 {
 
 .progressbard li.done {
     background: #bcd5b9;
+}
+
+/* Character Profile Pages */
+.profile-page {
+	background: url('../img/bard-app-bg.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.profile-header {
+	background: transparent;
+}
+
+.profile-image {
+	width: 60%;
+	position: relative;
+	top: 10%;
+	left: 20%;
+}
+
+.profile-title {
+	text-align: center;
+}
+
+/* Story Player Pages */
+.player-page {
+	background: url('../img/bard-app-bg.png');
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+
+.player-header {
+	background: transparent;
+}
+
+.player-title {
+	text-align: center;
+}
+
+/* Story Player Pages: Audio Controls */
+.audio-controls {
+	text-align: center;
+}
+
+.audio-current {
+	text-align: left;
+}
+
+.audio-total {
+	text-align: right;
+}
+
+.audio-progressbar {
+	width: 90%;
+	height: 10px;
+
+	/* Webkit browsers */
+	-webkit-appearance: none;
+	appearance: none;
+
+	/* Firefox browser */
+	-moz-appearance: none;
+	border: none;
+
+	color: #DD0000;
+	background-color: #FFFFFF;
 }

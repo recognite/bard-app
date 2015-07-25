@@ -35,21 +35,34 @@ angular.module('BardApp.controllers', [])
 .controller('CharacterController', function($scope, ContentSvc) {
 
 	$scope.characters = ContentSvc.CharacterContent();
+	if(!$scope.$$phase) {
+		$scope.$apply();
+	}
+/*
+	function showBanner(index) {
+		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
+		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
+		var elm = document.querySelector(q);
 
-	/*
-	 * if given group is the selected group, deselect it
-	 * else, select the given group
-	 */
-	$scope.toggleGroup = function(group) {
-		if ($scope.isGroupShown(group)) {
-			$scope.shownGroup = null;
-		} else {
-			$scope.shownGroup = group;
+		console.log("Show banner " + index);
+
+		// Remove class "current"
+		if (null !== oldElm) {
+			oldElm.classList.remove("current");
 		}
-	};
-	$scope.isGroupShown = function(group) {
-		return $scope.shownGroup === group;
-	};
+
+		// Add class "current" to current slide
+		if (null !== elm) {
+			elm.classList.add("current");
+		}
+	}
+
+	$scope.activeSlide = 0;
+	setTimeout(function() {
+		showBanner($scope.activeSlide);
+	}, 100);
+	$scope.slideChanged = showBanner;
+*/
 })
 
 
@@ -86,7 +99,7 @@ angular.module('BardApp.controllers', [])
 
 
 .controller('StoryController', function($scope, ContentSvc) {
-
+/*
 	function showBanner(index) {
 		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
 		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
@@ -103,6 +116,10 @@ angular.module('BardApp.controllers', [])
 		if (null !== elm) {
 			elm.classList.add("current");
 		}
+
+		// Update content and link (outside slider) when slide changes?
+		// $scope.content = $scope.myths[index].content;
+		// $scope.link = $scope.myths[index].link;
 	}
 
 	$scope.activeSlide = 0;
@@ -110,8 +127,11 @@ angular.module('BardApp.controllers', [])
 		showBanner($scope.activeSlide);
 	}, 100);
 	$scope.slideChanged = showBanner;
-
+*/
 	$scope.myths = ContentSvc.StoryContent();
+	if(!$scope.$$phase) {
+		$scope.$apply();
+	}
 })
 
 .controller('PlayerController', function($scope, $ionicModal) {
@@ -171,6 +191,10 @@ angular.module('BardApp.controllers', [])
 		function onSuccess() {
 			$scope.outcome = "Not playing";
 		};
+
+		$scope.data.progress = 10;
+		$scope.currentPos = 30;
+		$scope.total = 150;
 	};
 
 //	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};

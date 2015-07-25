@@ -1,42 +1,61 @@
 <ion-view title="CHARACTERS">
-	<ion-content>
-		<div class="bar bar-header item-input-inset">
-			<label class="item-input-wrapper">
-			<i class="icon ion-ios-search placeholder-icon"></i>
-				<input type="search" id="searchTerm" placeholder="Search for a character" ng-model="searchCharacter" />
-			</label>
-			<button class="button button-clear">Cancel</button>
-		</div>
+	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+		<ion-tab title="Characters">
+			<!-- Tab 1 content -->
+			<ion-content>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 
-	  <ion-list>
-		<div class="bard-panel">
-			<br/>
-			<p>Filter by cycle:</p>
-		</div>
+				<div class="story-slider">
+					<ion-slide-box show-pager="false">
+						<ion-slide ng-repeat="character in characters">
+							<div class="slide">
+								<img src="img/{{character.img}}">
+								<h1>{{character.name}}</h1>
+							</div>
+						</ion-slide>
+					</ion-slide-box>
+				</div>
+			</ion-content>
+		</ion-tab>
 
-		<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='ProfileController'>
-		  <ion-item class="item item-avatar" ng-click="showProfile(character)">
-			<img src="img/{{character.img}}">
-			<h2>{{character.name}}</h2>
-			<p></p>
-		  </ion-item>			
+		<ion-tab title="Search">
+			<!-- Tab 2 content -->
+			<ion-content>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
 
-<!--
-		  <ion-item class="item-stable" ng-click="toggleGroup(character)" ng-class="{active: isGroupShown(character)}">
-			<div class="item item-avatar">
-				<img src="img/{{character.img}}">
-				<h2>{{character.name}}</h2>
-				<p></p>
-			</div>
-		  </ion-item>
+				<div class="bar bar-header item-input-inset">
+					<label class="item-input-wrapper">
+					<i class="icon ion-ios-search placeholder-icon"></i>
+						<input type="search" id="searchTerm" placeholder="Search for a character" ng-model="searchCharacter" />
+					</label>
+					<button class="button button-clear">Cancel</button>
+				</div>
 
-		  <ion-item class="item-accordion" ng-repeat="story in character.stories" ng-show="isGroupShown(character)" ng-click="openModal()">
-			<img src="img/{{story.img}}" alt="image" height="35" />
-		    {{story.title}}
-		  </ion-item>
- -->
-		</div>
-	  </ion-list>
+			  <ion-list>
+				<div class="bard-panel">
+					<br/>
+					<p>Filter by cycle:</p>
+				</div>
 
-	</ion-content>
+				<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='ProfileController'>
+				  <ion-item class="item item-avatar" ng-click="showProfile(character)">
+					<img src="img/{{character.img}}">
+					<h2>{{character.name}}</h2>
+					<p></p>
+				  </ion-item>			
+
+				</div>
+			  </ion-list>
+
+			</ion-content>
+		</ion-tab>
+	</ion-tabs>
 </ion-view>
