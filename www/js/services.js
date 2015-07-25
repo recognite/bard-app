@@ -70,19 +70,19 @@ angular.module('BardApp.services', [])
 
 	this.CharacterContent = function() {
 		characters = [
-			{name: "Aengus Og", link:"", img: "ionic.png", stories: [
+			{name: "Aengus Og", link:"", img: "cycle_mythological/aenghus_og.png", stories: [
 				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Allil", link:"", img: "ionic.png", stories: [
+			{name: "Allil", link:"", img: "cycle_mythological/allil.png", stories: [
 				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Aoife", link:"", img: "ionic.png", stories: [
+			{name: "Aoife", link:"", img: "cycle_ulster/aoife.png", stories: [
 				{title: "Children Of Lir", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Balor", link:"", img: "", stories: [
+			{name: "Balor", link:"", img: "cycle_mythological/balor_eye.png", stories: [
 				{title: "Battle Of Moytura", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Cuchulainn", link:"", img: "ionic.png", stories: [
+			{name: "Cuchulainn", link:"", img: "cycle_ulster/chuchulain.png", stories: [
 				{title: "Setanta Joins the Boy's Troop", link: "", img: "ionic.png", cycle: "Ulster"},
 				{title: "How Cuchulainn Got his Name", link: "", img: "ionic.png", cycle: "Ulster"},
 				{title: "Cuchulainn Taking Up Of Arms", link: "", img: "ionic.png", cycle: "Ulster"},
@@ -98,6 +98,21 @@ angular.module('BardApp.services', [])
 		];
 
 		return characters;
+	}
+
+	this.MythContent = function() {
+		whyMyths = [
+			{name: "Why Myth", items: [
+				{title: 'The Idea of the Bard', image: 'ionic.png'},
+				{title: 'Collective Stories', image: 'ionic.png'},
+				{title: 'Multi-Valent Stories', image: 'ionic.png'},
+				{title: 'Always About Today', image: 'ionic.png'},
+				{title: 'Why Myth', image: 'ionic.png'},
+				{title: 'Why Myth', image: 'ionic.png'}
+			]}
+		];
+
+		return whyMyths;
 	}
 
 	this.JourneyContent = function() {
@@ -134,6 +149,7 @@ angular.module('BardApp.services', [])
 
 		return journeys;
 	}
+
 })
 
 .service('AudioSvc', [function() {

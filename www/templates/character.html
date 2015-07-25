@@ -11,17 +11,30 @@
 	  <ion-list>
 		<div class="bard-panel">
 			<br/>
-			<p>Join the mythological characters of Ancient Ireland</p>
+			<p>Filter by cycle:</p>
 		</div>
 
-		<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='PlayerController'>
+		<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='ProfileController'>
+		  <ion-item class="item item-avatar" ng-click="showProfile(character)">
+			<img src="img/{{character.img}}">
+			<h2>{{character.name}}</h2>
+			<p></p>
+		  </ion-item>			
+
+<!--
 		  <ion-item class="item-stable" ng-click="toggleGroup(character)" ng-class="{active: isGroupShown(character)}">
-			{{character.name}}
+			<div class="item item-avatar">
+				<img src="img/{{character.img}}">
+				<h2>{{character.name}}</h2>
+				<p></p>
+			</div>
 		  </ion-item>
+
 		  <ion-item class="item-accordion" ng-repeat="story in character.stories" ng-show="isGroupShown(character)" ng-click="openModal()">
 			<img src="img/{{story.img}}" alt="image" height="35" />
 		    {{story.title}}
 		  </ion-item>
+ -->
 		</div>
 	  </ion-list>
 

@@ -45,7 +45,8 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 		url: "/myths",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/myth.html"
+				templateUrl: "templates/myth.html",
+				controller: "MythController"
 			}
 		}
     })

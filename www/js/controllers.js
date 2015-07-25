@@ -53,6 +53,38 @@ angular.module('BardApp.controllers', [])
 })
 
 
+.controller('ProfileController', function($scope, $ionicModal) {
+	$ionicModal.fromTemplateUrl('templates/profile-page.html', {
+		scope: $scope,
+		animation: 'slide-in-right'
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	
+	$scope.openModal = function() {
+		$scope.modal.show();
+	};
+
+	$scope.closeModal = function() {
+		$scope.modal.hide();
+	};
+
+	$scope.hidePlayer = function() {
+		$scope.modal.hide();
+	};
+
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	});
+
+	$scope.showProfile = function(character) {
+		$scope.profile = character;
+		$scope.openModal();
+	};
+})
+
+
 .controller('StoryController', function($scope, ContentSvc) {
 
 	function showBanner(index) {
@@ -205,6 +237,26 @@ angular.module('BardApp.controllers', [])
 		};
 	}
 */
+})
+
+
+.controller('MythController', function($scope, ContentSvc) {
+	$scope.groups = ContentSvc.MythContent();
+
+	/*
+	 * if given group is the selected group, deselect it
+	 * else, select the given group
+	 */
+	$scope.toggleGroup = function(group) {
+		if ($scope.isGroupShown(group)) {
+			$scope.shownGroup = null;
+		} else {
+			$scope.shownGroup = group;
+		}
+	};
+	$scope.isGroupShown = function(group) {
+		return $scope.shownGroup === group;
+	};
 })
 
 

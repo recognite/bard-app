@@ -15,9 +15,56 @@ body .pane, .menu, .view, .list, .item       {
 }
 */
 
+
+/*
 body .pane, .menu, .view, .list, .item {
 	background-color: #071a29;
 	color: #ffffff;
+}
+
+.scroll-content {
+	background: url('../img/bard_header_template.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+*/
+
+.pane {
+/*
+	background: url('../img/bard_header_template.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+*/
+	background: url('../img/bard-app-bg.png');
+	background-repeat: no-repeat;
+	/*background-size: contain;*/
+	background-position: top center;
+	/*width: 100%;*/
+}
+
+.bar.bar-dark {
+	/*background-color: rgba(255,255,255,.66) !important; /* or transparent, or background:none */
+	background-color: transparent !important; 
+}
+.scroll-content {
+	overflow: visible !important;
+}
+
+.bard-nav {
+	background-color: #071a29;
+	color: #ffffff;
+}
+
+.list, .item {
+    background: transparent;
+}
+
+.mainContent {
+	/*background-image: url('../img/bard_header_template.png');*/
 }
 
 .bard-link {
@@ -76,9 +123,38 @@ h1, h2, h3 {
 	color: #ff0000;
 }
 
+/* Story Slider */
+.story-slider {
+	height: 40%;
+	width: 86%;
+	margin: 0 auto;
+}
+
+.story-slider .slider {
+	height: 100%;
+	overflow: visible;
+}
+
+.story-slider .slider-slide {
+	overflow: hidden;
+	color: #000;
+/*	background-color: #ccc;*/
+	text-align: center;
+}
+
+.story-slider ion-slide {
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+.story-slider ion-slide:first-child { padding-left: 0; }
+.story-slider ion-slide:last-child { padding-left: 0; }
+.story-slider ion-slide:nth-child(2) { z-index: 1; }
+
 /* Slides */
 .slider {
-  height: 100%;
+	height: 100%;
+	slider-width: 0.8;
 }
 
 .slider-pager {
@@ -124,12 +200,14 @@ h1, h2, h3 {
 
 
 /* Journey stuff */
+
 .list .item.item-accordion {
 	line-height: 38px;
 	padding-top: 0;
 	padding-bottom: 0;
 	transition: 0.09s all linear;
-	background-color: #848d96;
+/*	background-color: #848d96;*/
+	background: transparent;
 	color: #000000;
 }
 .list .item.item-accordion.ng-hide {
@@ -141,24 +219,24 @@ h1, h2, h3 {
 }
 
 .list .item.item-stable {
-	background-color: #071a29;
+/*	background-color: #071a29;*/
+	background: transparent;
 	color: #ffffff;
 }
 
 .list .item.item-stable.active {
-	/*background-color: #556622;*/
+/*
 	background-image: linear-gradient(bottom, #848d96 50%, #071a29 50%);
-/* Not sure we need the below */
 	background-image: -o-linear-gradient(bottom, #848d96 50%, #071a29 50%);
 	background-image: -moz-linear-gradient(bottom, #848d96 50%, #071a29 50%);
 	background-image: -webkit-linear-gradient(bottom, #848d96 50%, #071a29 50%);
 	background-image: -ms-linear-gradient(bottom, #848d96 50%, #071a29 50%);
-/* Text colour */
+*/
 	color: #ffffff;
 }
 
 .list .item-divider {
-	background-color: #fffacd;	/* LemonChiffon */
+/*	background-color: #fffacd;*/
 	color: #000000;
 }
 
