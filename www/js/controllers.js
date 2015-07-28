@@ -230,6 +230,14 @@ angular.module('BardApp.controllers', [])
 	$scope.loaded = true;
 	$scope.isPlaying = false;
 
+	// For testing, will be set by controller properly later
+	$scope.title = "Finn and the Fianna";
+	$scope.cycle = "Fenian";
+
+	$scope.position = 30;
+	$scope.currentPos = "05:10";
+	$scope.total = "10:09";
+
 })
 
 .controller('MythController', function($scope, ContentSvc) {

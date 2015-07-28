@@ -1,15 +1,24 @@
 <ion-modal-view class="player-page">
 	<ion-header-bar class="player-header">
-		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="closeModal()"></button>
+		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="hidePlayer()"></button>
 	</ion-header-bar>
 
 	<ion-content>
-		<h1 class="player-title">{{player.title}}</h1>
-		<p class="player-caption"></p>
+
+		<div class="player-panel">
+			<h1 class="player-title">{{title}}</h1>
+			<p class="player-caption">Stories of Irish Myth / {{cycle}} Cycle</p>
+		</div>
 
 		<!-- Audio progress bar -->
-		<progress class="audio-progressbar" value="10" max="100"></progress>
-		<div><span class="audio-current">{{currentPos}}</span><span class="audio-total">{{total}}</span></div>
+		<div class="audio-progress" id="audio-pb-bg">
+			<div ng-show="loaded" class="audio-progressbar" style="width: {{position}}%;"></div>
+		</div>
+		<div class="audio-progress">
+			<div class="audio-current">{{currentPos}}</div>
+			<div class="audio-total">{{total}}</div>
+		</div>
+
 
 		<!-- Audio controls <<back play/pause fwd>> -->
 		<div class="audio-controls">

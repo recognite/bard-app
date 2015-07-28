@@ -297,35 +297,49 @@ h1, h2, h3 {
 	background: transparent;
 }
 
+.player-panel {
+	padding: 50px 0px;
+}
+
 .player-title {
 	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
 }
+
+.player-caption {
+	text-align: center;
+	color: #506666;
+}
+
 
 /* Story Player Pages: Audio Controls */
 .audio-controls {
 	text-align: center;
 }
 
+.audio-progress {
+	width: 90%;
+	margin: auto;
+}
+
+#audio-pb-bg {
+	background-color: #FFFFFF;
+}
+
 .audio-current {
+	display: inline;
 	text-align: left;
 }
 
 .audio-total {
+	display: inline;
+	float: right;
 	text-align: right;
 }
 
 .audio-progressbar {
-	width: 90%;
 	height: 10px;
-
-	/* Webkit browsers */
-	-webkit-appearance: none;
-	appearance: none;
-
-	/* Firefox browser */
-	-moz-appearance: none;
-	border: none;
-
-	color: #DD0000;
-	background-color: #FFFFFF;
+	transition: width 0.2s; 
+	background: #dd6161;
 }

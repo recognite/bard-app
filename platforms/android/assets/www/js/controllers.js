@@ -36,20 +36,31 @@ angular.module('BardApp.controllers', [])
 
 	$scope.characters = ContentSvc.CharacterContent();
 
-	/*
-	 * if given group is the selected group, deselect it
-	 * else, select the given group
-	 */
-	$scope.toggleGroup = function(group) {
-		if ($scope.isGroupShown(group)) {
-			$scope.shownGroup = null;
-		} else {
-			$scope.shownGroup = group;
+/*
+	function showBanner(index) {
+		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
+		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
+		var elm = document.querySelector(q);
+
+		console.log("Show banner " + index);
+
+		// Remove class "current"
+		if (null !== oldElm) {
+			oldElm.classList.remove("current");
 		}
-	};
-	$scope.isGroupShown = function(group) {
-		return $scope.shownGroup === group;
-	};
+
+		// Add class "current" to current slide
+		if (null !== elm) {
+			elm.classList.add("current");
+		}
+	}
+
+	$scope.activeSlide = 0;
+	setTimeout(function() {
+		showBanner($scope.activeSlide);
+	}, 100);
+	$scope.slideChanged = showBanner;
+*/
 })
 
 
@@ -86,7 +97,7 @@ angular.module('BardApp.controllers', [])
 
 
 .controller('StoryController', function($scope, ContentSvc) {
-
+/*
 	function showBanner(index) {
 		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
 		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
@@ -114,11 +125,14 @@ angular.module('BardApp.controllers', [])
 		showBanner($scope.activeSlide);
 	}, 100);
 	$scope.slideChanged = showBanner;
-
+*/
 	$scope.myths = ContentSvc.StoryContent();
+//	$scope.myths = ContentSvc.BasicStoryContent();
 })
 
-.controller('PlayerController', function($scope, $ionicModal) {
+
+/*
+.controller('PlayerController', function($scope, $ionicPlatform, $ionicModal, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -153,100 +167,78 @@ angular.module('BardApp.controllers', [])
 		// Execute action
 	});
 
-	$scope.playStory = function(story) {
-		$scope.player = story;
-		$scope.openModal();
-/*		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
-			//console.log(a, b);
-			$scope.position = Math.ceil(a / b * 100);
-			if (a < 0) {
-				$scope.stopAudio();
-			}
-			if (!$scope.$$phase) $scope.$apply();
-		});
-*/
-		var media = new Media("http://site255.webelevate.net/bard/stories/bard-intro.mp3", onSuccess, onError);
-      	media.play();
+	$scope.myths = ContentSvc.StoryContent();
 
-		function onSuccess() {
-			$scope.outcome = "Playing";
+    $ionicPlatform.ready(function() {
+		$scope.playStory = function(story) {
+			$scope.player = story;
+			$scope.openModal();
+			AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+				$scope.position = Math.ceil(a / b * 100);
+				if (a < 0) {
+					$scope.stopAudio();
+				}
+				if (!$scope.$$phase) $scope.$apply();
+			});
+
+			$scope.loaded = true;
+			$scope.isPlaying = true;
 		};
 
-		function onSuccess() {
-			$scope.outcome = "Not playing";
-		};
-
-		$scope.data.progress = 10;
-		$scope.currentPos = 30;
-		$scope.total = 150;
-	};
-
-//	$scope.player = {title: "The Tale of the Bard", link: "http://site255.webelevate.net/bard/stories/bard-intro.mp3"};
-	$scope.loaded = true;
-	$scope.isPlaying = true;
-
-	$scope.resumeAudio = function() {
-		//AudioSvc.resumeAudio();
-		$scope.isPlaying = true;
-		$scope.outcome = "Resuming...";
-		if (!$scope.$$phase) $scope.$apply();
-	};
-
-	$scope.pauseAudio = function() {
-		//AudioSvc.pauseAudio();
-		$scope.isPlaying = false;
-		$scope.outcome = "Pausing...";
-		if (!$scope.$$phase) $scope.$apply();
-	};
-
-	$scope.stopAudio = function() {
-		//AudioSvc.stopAudio();
-		$scope.loaded = false;
-		$scope.isPlaying = false;
-		$scope.outcome = "Stopping...";
-		if (!$scope.$$phase) $scope.$apply();
-	};	
-
-/*
-	$ionicPlatform.ready(function() {
-
-		AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
-			//console.log(a, b);
-			$scope.position = Math.ceil(a / b * 100);
-			if (a < 0) {
-				$scope.stopAudio();
-			}
-			if (!$scope.$$phase) $scope.$apply();
-		});
- 
-		$scope.loaded = true;
-		$scope.isPlaying = true;
-		$scope.name = file.name;
-		$scope.path = file.fullPath;
-
-		// show the player
-		$scope.player();
-
-		$scope.pauseAudio = function() {
+        $scope.pauseAudio = function() {
 			AudioSvc.pauseAudio();
 			$scope.isPlaying = false;
 			if (!$scope.$$phase) $scope.$apply();
-		};
-		$scope.resumeAudio = function() {
+        };
+        $scope.resumeAudio = function() {
 			AudioSvc.resumeAudio();
 			$scope.isPlaying = true;
 			if (!$scope.$$phase) $scope.$apply();
-		};
-		$scope.stopAudio = function() {
+        };
+        $scope.stopAudio = function() {
 			AudioSvc.stopAudio();
 			$scope.loaded = false;
 			$scope.isPlaying = false;
 			if (!$scope.$$phase) $scope.$apply();
-		};
-	}
-*/
+        };
+	});
 })
+*/
 
+.controller('PlayerController', function($scope, $ionicModal) {
+	$ionicModal.fromTemplateUrl('templates/player.html', {
+		scope: $scope,
+		animation: 'slide-in-right'
+	}).then(function(modal) {
+		$scope.modal = modal;
+	});
+	
+	$scope.showPlayer = function() {
+		$scope.modal.show();
+	};
+
+	$scope.hidePlayer = function() {
+		$scope.modal.hide();
+	};
+
+	//Cleanup the modal when we're done with it!
+	$scope.$on('$destroy', function() {
+		$scope.modal.remove();
+	});
+
+	// Build player functionality around these!
+	$scope.loaded = true;
+	$scope.isPlaying = false;
+
+	// For testing, will be set by controller properly later
+	$scope.title = "Finn and the Fianna";
+	$scope.cycle = "Fenian";
+
+	$scope.position = 30;
+	$scope.currentPos = "05:10";
+	$scope.total = "10:09";
+
+})
 
 .controller('MythController', function($scope, ContentSvc) {
 	$scope.groups = ContentSvc.MythContent();

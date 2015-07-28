@@ -73,6 +73,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 
     .state('app.stories', {
 		url: "/stories",
+		cache: false,
 		views: {
 			'menuContent': {
 				templateUrl: "templates/story.html",
@@ -83,6 +84,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 
     .state('app.characters', {
 		url: "/characters",
+		cache: false,
 		views: {
 			'menuContent': {
 				templateUrl: "templates/character.html",

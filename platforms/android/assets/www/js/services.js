@@ -68,6 +68,51 @@ angular.module('BardApp.services', [])
 		return storyMyths;
 	}
 
+	this.BasicStoryContent = function() {
+		storyMyths = [
+			{title: "Cian And Eithlinn", link: "", cycle: "Mythological"},
+			{title: "Invasions 1 - Cesaire", link: "", cycle: "Mythological"},
+			{title: "Invasions 2 - Partholon", link: "", cycle: "Mythological"},
+			{title: "Invasions 3 - Nemed And The Fir Bolg", link: "", cycle: "Mythological"},
+			{title: "Invasions 4 - The First Battle Of Moy Tura", link: "", cycle: "Mythological"},
+			{title: "Invasions 5 - The Second Battle Of Moy Tura", link: "", cycle: "Mythological"},
+			{title: "Invasions 6 - The Sons Of Mil And The Battle Of Tailtiu", link: "", cycle: "Mythological"},
+			{title: "Midir And Etain", link: "", cycle: "Mythological"},
+			{title: "The Dagda's Harp", link: "", cycle: "Mythological"},
+			{title: "The Voyage Of Bran", link: "", cycle: "Mythological"},
+			{title: "Book Of Invasions 1", link: "", cycle: "Mythological"},
+			{title: "Book Of Invasions 2", link: "", cycle: "Mythological"},
+			{title: "Book Of Invasions 3", link: "", cycle: "Mythological"},
+			{title: "Book Of Invasions 4", link: "", cycle: "Mythological"},
+			{title: "Cormac Mac Art 1", link: "", cycle: "Mythological"},
+			{title: "Niall Of The Nine Hostages", link: "", cycle: "Mythological"},
+			{title: "Diarmuid And Grainne", link: "", cycle: "Fenian"},
+			{title: "Finn and the Fianna", link: "", cycle: "Fenian"},
+			{title: "Finn - Birth And Boyhood", link: "", cycle: "Fenian"},
+			{title: "Oisin In Tir na nOg", link: "", cycle: "Fenian"},
+			{title: "Conaire Mor", link: "", cycle: "Kings"},
+			{title: "Cormac Mac Art", link: "", cycle: "Kings"},
+			{title: "Labhraidh Loingseach", link: "", cycle: "Kings"},
+			{title: "Mongan", link: "", cycle: "Kings"},
+			{title: "Niall Of The Nine Hostages", link: "", cycle: "Kings"},
+			{title: "Setanta Joins The Boy's Troop", link: "", cycle: "Ulster"},
+			{title: "How Cuchulainn Got His Name", link: "", cycle: "Ulster"},
+			{title: "Cuchulainn - Taking Up Of Arms", link: "", cycle: "Ulster"},
+			{title: "Cuchulainn - Wooing Of Emer", link: "", cycle: "Ulster"},
+			{title: "Cuchulainn's Training With Scathach", link: "", cycle: "Ulster"},
+			{title: "Deirdre Of The Sorrows", link: "", cycle: "Ulster"},
+			{title: "Ferdia At The Ford", link: "", cycle: "Ulster"},
+			{title: "The Champion's Portion 1", link: "", cycle: "Ulster"},
+			{title: "The Champion's Portion 2", link: "", cycle: "Ulster"},
+			{title: "The Champion's Portion 3", link: "", cycle: "Ulster"},
+			{title: "The Death Of Cuchulainn", link: "", cycle: "Ulster"},
+			{title: "The Sickbed Of Cuchulainn", link: "", cycle: "Ulster"},
+			{title: "The Son Of Cuchulainn - Death Of Connla", link: "", cycle: "Ulster"}
+		];
+
+		return storyMyths;
+	}
+
 	this.CharacterContent = function() {
 		characters = [
 			{name: "Aengus Og", link:"", img: "cycle_mythological/aenghus_og.png", stories: [
