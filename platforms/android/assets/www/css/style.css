@@ -32,18 +32,13 @@ body .pane, .menu, .view, .list, .item {
 */
 
 .pane {
-/*
-	background: url('../img/bard_header_template.png') no-repeat center center fixed; 
+	background: url('../img/bard-app-bg.png');
+	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-*/
-	background: url('../img/bard-app-bg.png');
-	background-repeat: no-repeat;
-	/*background-size: contain;*/
 	background-position: top center;
-	/*width: 100%;*/
 }
 
 .bar.bar-dark {

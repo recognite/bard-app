@@ -23,8 +23,8 @@
 		<!-- Audio controls <<back play/pause fwd>> -->
 		<div class="audio-controls">
 			<button class="button button-clear button-dark icon ion-skip-backward" ng-click=""></button>
-			<button class="button button-clear button-dark button-large icon ion-play" ng-click="" ng-hide="isPlaying || !loaded"></button>
-			<button class="button button-clear button-dark button-large icon ion-pause" ng-click="" ng-show="isPlaying"></button>
+			<button class="button button-clear button-dark button-large icon ion-play" ng-click="playStory()" ng-hide="isPlaying || !loaded"></button>
+			<button class="button button-clear button-dark button-large icon ion-pause" ng-click="pauseStory()" ng-show="isPlaying"></button>
 			<button class="button button-clear button-dark icon ion-skip-forward" ng-click=""></button>
 		</div>
 

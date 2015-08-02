@@ -205,7 +205,7 @@ angular.module('BardApp.controllers', [])
 })
 */
 
-.controller('PlayerController', function($scope, $ionicModal) {
+.controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -227,16 +227,40 @@ angular.module('BardApp.controllers', [])
 	});
 
 	// Build player functionality around these!
-	$scope.loaded = true;
-	$scope.isPlaying = false;
+	$ionicPlatform.ready(function() {
 
-	// For testing, will be set by controller properly later
-	$scope.title = "Finn and the Fianna";
-	$scope.cycle = "Fenian";
+		$scope.openPlayer = function(story) {
+			$scope.loaded = true;
+			$scope.isPlaying = false;
 
-	$scope.position = 30;
-	$scope.currentPos = "05:10";
-	$scope.total = "10:09";
+			// For testing, will be set by controller properly later
+			$scope.title = story.title;
+			$scope.cycle = "Fenian";
+
+			$scope.position = 30;
+			$scope.currentPos = "05:10";
+			$scope.total = "10:09";
+
+			$scope.showPlayer();
+		};
+
+		$scope.playStory = function() {
+			AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+				$scope.position = Math.ceil(a / b * 100);
+				if (a < 0) {
+					$scope.stopAudio();
+				}
+				if (!$scope.$$phase) $scope.$apply();
+			});
+			$scope.isPlaying = true;
+		};
+
+		$scope.pauseStory = function() {
+			AudioSvc.pauseAudio();
+			$scope.isPlaying = false;
+			if (!$scope.$$phase) $scope.$apply();
+		};
+	});
 
 })
 

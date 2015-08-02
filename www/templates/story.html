@@ -15,7 +15,7 @@
 					<p>Discover the ancient stories of mythology</p>
 				</div>
 			</div>
-<!--
+
 			<div class="story-slider">
 				<ion-slide-box show-pager="false">
 					<ion-slide>
@@ -43,7 +43,7 @@
 					</ion-slide>
 				</ion-slide-box>
 			</div>
- -->
+
 			</ion-content>
 		</ion-tab>
 
@@ -76,8 +76,8 @@
 					<div ng-repeat="myth in myths" ng-controller="PlayerController">
 						<div class="item item-divider">{{myth.cycle}}</div>
 						<div ng-repeat="story in myth.stories | filter:searchStory">
-							<div class="item" ng-click="showPlayer()">{{story.title}}</div>
-<!--							<div class="item" ng-click="playStory(story)">{{story.title}}</div> -->
+<!--							<div class="item" ng-click="showPlayer()">{{story.title}}</div> -->
+							<div class="item" ng-click="openPlayer(story)">{{story.title}}</div>
 						</div>
 					</div>
 				</div>
