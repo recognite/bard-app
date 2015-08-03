@@ -64,7 +64,7 @@ angular.module('BardApp.controllers', [])
 })
 
 
-.controller('ProfileController', function($scope, $ionicModal) {
+.controller('ProfileController', function($scope, $ionicModal, $http) {
 	$ionicModal.fromTemplateUrl('templates/profile-page.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -91,6 +91,11 @@ angular.module('BardApp.controllers', [])
 
 	$scope.showProfile = function(character) {
 		$scope.profile = character;
+		$http.get('content/' + $scope.profile.link).success(function(response){ 
+			$scope.content = response;
+		}).error(function(data) {
+			console.log("Error with http.get");
+		});
 		$scope.openModal();
 	};
 })
@@ -233,7 +238,6 @@ angular.module('BardApp.controllers', [])
 			$scope.loaded = true;
 			$scope.isPlaying = false;
 
-			// For testing, will be set by controller properly later
 			$scope.title = story.title;
 			$scope.cycle = "Fenian";
 

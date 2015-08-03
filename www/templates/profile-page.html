@@ -8,9 +8,10 @@
 	<ion-content>
 		<img class="profile-image" src="img/{{profile.img}}">
 		<h1 class="profile-title">{{profile.name}}</h1>
-		<p class="profile-caption"></p>
+		<p class="profile-caption">{{content.overview}}</p>
 
-		<p class="profile-mainText"></p>
+		<p class="profile-mainText" ng-repeat="story in content.stories">{{story}}</p>
 
+		<p class="profile-mainText">{{content.conclusion}}</p>
 	</ion-content>
 </ion-modal-view>

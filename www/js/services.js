@@ -115,16 +115,16 @@ angular.module('BardApp.services', [])
 
 	this.CharacterContent = function() {
 		characters = [
-			{name: "Aengus Og", link:"", img: "cycle_mythological/aenghus_og.png", stories: [
+			{name: "Aengus Og", link:"character_profiles/aengus-og.json", img: "cycle_mythological/aenghus_og.png", stories: [
 				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Allil", link:"", img: "cycle_mythological/allil.png", stories: [
+			{name: "Allil", link:"character_profiles/allill.json", img: "cycle_mythological/allil.png", stories: [
 				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Aoife", link:"", img: "cycle_ulster/aoife.png", stories: [
+			{name: "Aoife", link:"character_profiles/aoife.json", img: "cycle_ulster/aoife.png", stories: [
 				{title: "Children Of Lir", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
-			{name: "Balor", link:"", img: "cycle_mythological/balor_eye.png", stories: [
+			{name: "Balor", link:"character_profiles/balor.json", img: "cycle_mythological/balor_eye.png", stories: [
 				{title: "Battle Of Moytura", link: "", img: "ionic.png", cycle: "Mythological"}
 			]},
 			{name: "Cuchulainn", link:"", img: "cycle_ulster/chuchulain.png", stories: [
