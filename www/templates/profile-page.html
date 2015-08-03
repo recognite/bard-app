@@ -7,11 +7,13 @@
 	</ion-header-bar>
 	<ion-content>
 		<img class="profile-image" src="img/{{profile.img}}">
-		<h1 class="profile-title">{{profile.name}}</h1>
+		<h2 class="profile-title">{{profile.name}}</h2>
 		<p class="profile-caption">{{content.overview}}</p>
 
+		<h4 class="profile-section">Background:</h4>
 		<p class="profile-mainText" ng-repeat="story in content.stories">{{story}}</p>
 
+		<h4 class="profile-section">Conclusion:</h4>
 		<p class="profile-mainText">{{content.conclusion}}</p>
 	</ion-content>
 </ion-modal-view>
