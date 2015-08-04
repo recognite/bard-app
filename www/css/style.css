@@ -160,7 +160,11 @@ h1, h2, h3 {
 
 
 /* Buttons */
-
+.filter-btn {
+	color: #FFFFFF;
+	border-radius: 2px;
+	background-color: #071a29;
+}
 
 
 /* Journey stuff */

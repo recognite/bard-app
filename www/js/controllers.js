@@ -35,32 +35,22 @@ angular.module('BardApp.controllers', [])
 .controller('CharacterController', function($scope, ContentSvc) {
 
 	$scope.characters = ContentSvc.CharacterContent();
+	$scope.characterList = $scope.characters;
 
-/*
-	function showBanner(index) {
-		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
-		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
-		var elm = document.querySelector(q);
-
-		console.log("Show banner " + index);
-
-		// Remove class "current"
-		if (null !== oldElm) {
-			oldElm.classList.remove("current");
-		}
-
-		// Add class "current" to current slide
-		if (null !== elm) {
-			elm.classList.add("current");
+	/* 
+	 * Filter the list to show only the selected
+	 */
+	$scope.filterList = function($criterion) {
+		if($criterion == 'Fenian' || $criterion == 'Kings' || $criterion == 'Mythological' || $criterion == 'Ulster') {
+			$newList = $scope.characterList.filter(function(data) {
+					return data.cycle == $criterion;
+			});
+			$scope.characterList = $newList;
+		} else {	// All
+			$scope.characterList = $scope.characters;
 		}
 	}
 
-	$scope.activeSlide = 0;
-	setTimeout(function() {
-		showBanner($scope.activeSlide);
-	}, 100);
-	$scope.slideChanged = showBanner;
-*/
 })
 
 
@@ -102,113 +92,11 @@ angular.module('BardApp.controllers', [])
 
 
 .controller('StoryController', function($scope, ContentSvc) {
-/*
-	function showBanner(index) {
-		var oldElm = document.querySelector('.slider ion-slide.slider-slide.current');
-		var q = '.slider ion-slide.slider-slide[data-index="' + index + '"]';
-		var elm = document.querySelector(q);
-
-		console.log("Show banner " + index);
-
-		// Remove class "current"
-		if (null !== oldElm) {
-			oldElm.classList.remove("current");
-		}
-
-		// Add class "current" to current slide
-		if (null !== elm) {
-			elm.classList.add("current");
-		}
-
-		// Update content and link (outside slider) when slide changes?
-		// $scope.content = $scope.myths[index].content;
-		// $scope.link = $scope.myths[index].link;
-	}
-
-	$scope.activeSlide = 0;
-	setTimeout(function() {
-		showBanner($scope.activeSlide);
-	}, 100);
-	$scope.slideChanged = showBanner;
-*/
-	$scope.myths = ContentSvc.StoryContent();
-//	$scope.myths = ContentSvc.BasicStoryContent();
-})
-
-
-/*
-.controller('PlayerController', function($scope, $ionicPlatform, $ionicModal, AudioSvc) {
-	$ionicModal.fromTemplateUrl('templates/player.html', {
-		scope: $scope,
-		animation: 'slide-in-right'
-	}).then(function(modal) {
-		$scope.modal = modal;
-	});
-	
-	$scope.openModal = function() {
-		$scope.modal.show();
-	};
-
-	$scope.closeModal = function() {
-		$scope.modal.hide();
-	};
-
-	$scope.hidePlayer = function() {
-		$scope.modal.hide();
-	};
-
-	//Cleanup the modal when we're done with it!
-	$scope.$on('$destroy', function() {
-		$scope.modal.remove();
-	});
-
-	// Execute action on hide modal
-	$scope.$on('modal.hidden', function() {
-		// Execute action
-	});
-
-	// Execute action on remove modal
-	$scope.$on('modal.removed', function() {
-		// Execute action
-	});
 
 	$scope.myths = ContentSvc.StoryContent();
 
-    $ionicPlatform.ready(function() {
-		$scope.playStory = function(story) {
-			$scope.player = story;
-			$scope.openModal();
-			AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
-				$scope.position = Math.ceil(a / b * 100);
-				if (a < 0) {
-					$scope.stopAudio();
-				}
-				if (!$scope.$$phase) $scope.$apply();
-			});
-
-			$scope.loaded = true;
-			$scope.isPlaying = true;
-		};
-
-        $scope.pauseAudio = function() {
-			AudioSvc.pauseAudio();
-			$scope.isPlaying = false;
-			if (!$scope.$$phase) $scope.$apply();
-        };
-        $scope.resumeAudio = function() {
-			AudioSvc.resumeAudio();
-			$scope.isPlaying = true;
-			if (!$scope.$$phase) $scope.$apply();
-        };
-        $scope.stopAudio = function() {
-			AudioSvc.stopAudio();
-			$scope.loaded = false;
-			$scope.isPlaying = false;
-			if (!$scope.$$phase) $scope.$apply();
-        };
-	});
 })
-*/
+
 
 .controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/player.html', {
@@ -231,7 +119,7 @@ angular.module('BardApp.controllers', [])
 		$scope.modal.remove();
 	});
 
-	// Build player functionality around these!
+
 	$ionicPlatform.ready(function() {
 
 		$scope.openPlayer = function(story) {

@@ -43,9 +43,14 @@
 				<div class="bard-panel">
 					<br/>
 					<p>Filter by cycle:</p>
+					<button class="filter-btn" data-ng-click="filterList('All')">All</button>
+					<button class="filter-btn" data-ng-click="filterList('Mythological')">Mythological</button>
+					<button class="filter-btn" data-ng-click="filterList('Ulster')">Ulster</button>
+					<button class="filter-btn" data-ng-click="filterList('Fenian')">Fenian</button>
+					<button class="filter-btn" data-ng-click="filterList('Kings')">Kings</button>
 				</div>
 
-				<div ng-repeat="character in characters | filter:searchCharacter" ng-controller='ProfileController'>
+				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>
 				  <ion-item class="item item-avatar" ng-click="showProfile(character)">
 					<img src="img/{{character.img}}">
 					<h2>{{character.name}}</h2>

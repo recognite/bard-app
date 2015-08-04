@@ -1,35 +1,6 @@
-/* Empty. Add your own CSS if you like */
-/*
-body {
-    background: url('../img/bgspiral.jpg');
-    background-attachment: fixed;
-    background-position: center;
-}
-
-body .view-container.tab-content {
-	background-color: transparent;
-}
-
-body .pane, .menu, .view, .list, .item       {
-    background: transparent;
-}
-*/
-
-
-/*
-body .pane, .menu, .view, .list, .item {
-	background-color: #071a29;
-	color: #ffffff;
-}
-
-.scroll-content {
-	background: url('../img/bard_header_template.png') no-repeat center center fixed; 
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-*/
+/* 
+ * Bard App Stylesheet
+ */
 
 .pane {
 	background: url('../img/bard-app-bg.png');
@@ -42,7 +13,6 @@ body .pane, .menu, .view, .list, .item {
 }
 
 .bar.bar-dark {
-	/*background-color: rgba(255,255,255,.66) !important; /* or transparent, or background:none */
 	background-color: transparent !important; 
 }
 .scroll-content {
@@ -56,10 +26,6 @@ body .pane, .menu, .view, .list, .item {
 
 .list, .item {
     background: transparent;
-}
-
-.mainContent {
-	/*background-image: url('../img/bard_header_template.png');*/
 }
 
 .bard-link {
@@ -133,7 +99,6 @@ h1, h2, h3 {
 .story-slider .slider-slide {
 	overflow: hidden;
 	color: #000;
-/*	background-color: #ccc;*/
 	text-align: center;
 }
 
@@ -174,7 +139,6 @@ h1, h2, h3 {
 	padding-top: 80px;
 	color: #ffffff;
 	background-color: #071a29;
-/*	background-color: #cc0000;*/
 	text-align: center;
 }
 
@@ -196,7 +160,11 @@ h1, h2, h3 {
 
 
 /* Buttons */
-
+.filter-btn {
+	color: #FFFFFF;
+	border-radius: 2px;
+	background-color: #071a29;
+}
 
 
 /* Journey stuff */
@@ -206,7 +174,6 @@ h1, h2, h3 {
 	padding-top: 0;
 	padding-bottom: 0;
 	transition: 0.09s all linear;
-/*	background-color: #848d96;*/
 	background: transparent;
 	color: #000000;
 }
@@ -219,7 +186,6 @@ h1, h2, h3 {
 }
 
 .list .item.item-stable {
-/*	background-color: #071a29;*/
 	background: transparent;
 	color: #ffffff;
 }
@@ -278,7 +244,27 @@ h1, h2, h3 {
 }
 
 .profile-title {
+	font-family: "HighTide_Bold";
+	color: #FFFFFF;
 	text-align: center;
+}
+
+.profile-caption {
+	font-family: "PTSerif_Italic";
+	color: #FFFFFF;
+	padding: 10px;
+}
+
+.profile-section {
+	font-family: "PTSans_Bold_Italic";
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.profile-mainText {
+	font-family: "PTSerif";
+	color: #FFFFFF;
+	padding: 10px;
 }
 
 /* Story Player Pages */

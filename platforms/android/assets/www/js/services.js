@@ -1,6 +1,6 @@
 angular.module('BardApp.services', [])
 
-.service('ContentSvc', function() {
+.service('ContentSvc', function($http) {
 	this.SlideContent = function() {
 
 		/* This content should come from a file. */
@@ -114,33 +114,71 @@ angular.module('BardApp.services', [])
 	}
 
 	this.CharacterContent = function() {
+		characters = [];
+/*
+		$http.get('content/character-list.json').success(function(response){ 
+			characters = response;
+			return characters;
+		}).error(function(data) {
+			console.log("Error with http.get: no characters!");
+		});
+*/
 		characters = [
-			{name: "Aengus Og", link:"", img: "cycle_mythological/aenghus_og.png", stories: [
-				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
-			]},
-			{name: "Allil", link:"", img: "cycle_mythological/allil.png", stories: [
-				{title: "Midhir and Etain", link: "", img: "ionic.png", cycle: "Mythological"}
-			]},
-			{name: "Aoife", link:"", img: "cycle_ulster/aoife.png", stories: [
-				{title: "Children Of Lir", link: "", img: "ionic.png", cycle: "Mythological"}
-			]},
-			{name: "Balor", link:"", img: "cycle_mythological/balor_eye.png", stories: [
-				{title: "Battle Of Moytura", link: "", img: "ionic.png", cycle: "Mythological"}
-			]},
-			{name: "Cuchulainn", link:"", img: "cycle_ulster/chuchulain.png", stories: [
-				{title: "Setanta Joins the Boy's Troop", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "How Cuchulainn Got his Name", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "Cuchulainn Taking Up Of Arms", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "Cuchulainn Wooing of Emer", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "Cuchulainn's Training with Scathach", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Champion's Portion 1", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Champion's Portion 2", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Champion's Portion 3", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Death of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Sickbed of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"},
-				{title: "The Son of Cuchulainn", link: "", img: "ionic.png", cycle: "Ulster"}
-			]}
-		];
+    {
+        "name": "Aengus Og",
+        "link": "character_profiles/aengus-og.json",
+        "img": "cycle_mythological/aenghus_og.png",
+        "cycle": "Mythological"
+    },
+    {
+        "name": "Allil",
+        "link": "character_profiles/allill.json",
+        "img": "cycle_mythological/allil.png",
+        "cycle": "Mythological"
+    },
+    {
+        "name": "Aoife",
+        "link": "character_profiles/aoife.json",
+        "img": "cycle_ulster/aoife.png",
+        "cycle": "Ulster"
+    },
+    {
+        "name": "Balor",
+        "link": "character_profiles/balor.json",
+        "img": "cycle_mythological/balor_eye.png",
+        "cycle": "Mythological"
+    },
+    {
+        "name": "Bodhbh Dearg",
+        "link": "character_profiles/bodhbh-dearg.json",
+        "img": "cycle_fenian/bodhbh_dearg.png",
+        "cycle": "Fenian"
+    },
+    {
+        "name": "Breas The Beautiful",
+        "link": "character_profiles/breas.json",
+        "img": "cycle_mythological/breas.png",
+        "cycle": "Mythological"
+    },
+    {
+        "name": "Bricriu of the Poisoned Tongue",
+        "link": "character_profiles/bricriu.json",
+        "img": "cycle_ulster/bricriu.png",
+        "cycle": "Ulster"
+    },
+    {
+        "name": "Brigid",
+        "link": "character_profiles/brigid.json",
+        "img": "cycle_mythological/brigit.png",
+        "cycle": "Mythological"
+    },
+    {
+        "name": "Cathbad",
+        "link": "character_profiles/cathbad.json",
+        "img": "cycle_ulster/cathbad.png",
+        "cycle": "Ulster"
+    }
+];
 
 		return characters;
 	}
