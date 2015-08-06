@@ -51,16 +51,6 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 		}
     })
 
-    .state('app.archetypes', {
-		url: "/archetypes",
-		views: {
-			'menuContent': {
-				templateUrl: "templates/archetype.html",
-				controller: "ArchetypeController"
-			}
-		}
-    })
-
     .state('app.journeys', {
 		url: "/journeys",
 		views: {

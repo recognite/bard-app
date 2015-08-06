@@ -3,7 +3,7 @@
  */
 
 .pane {
-	background: url('../img/bard-app-bg.png');
+	background: url('../img/bard-bg-full.jpg');
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -48,6 +48,26 @@ h1, h2, h3 {
 .selected {
 	background-color: #ffffff;
 	color: #000000;
+}
+
+/* Home */
+.responsive {
+	max-width:100% !important;
+    height:auto;
+    display:block;
+}
+
+.home-tile {
+	text-align: center;
+	border: 1px solid #FFFFFF;
+}
+
+.home-tile img {
+	margin: auto;
+}
+
+.home-tile a {
+	text-decoration: none;
 }
 
 /* Stories */
@@ -271,6 +291,10 @@ h1, h2, h3 {
 .player-page {
 	background: url('../img/bard-app-bg.png');
 	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	background-position: top center;
 }
 

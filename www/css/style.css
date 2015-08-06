@@ -62,6 +62,11 @@ h1, h2, h3 {
 	border: 1px solid #FFFFFF;
 }
 
+.home-tile-heading {
+	color: #FFFFFF;
+	font-family: "PTSans_Bold";
+}
+
 .home-tile img {
 	margin: auto;
 }
