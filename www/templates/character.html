@@ -10,14 +10,18 @@
 				<br/>
 
 				<div class="story-slider">
-					<ion-slide-box show-pager="false">
+					<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
 						<ion-slide ng-repeat="character in characters">
 							<div class="slide">
 								<img src="img/{{character.img}}">
-								<h1>{{character.name}}</h1>
 							</div>
 						</ion-slide>
 					</ion-slide-box>
+					<h2 class="characterSlider">{{placard}}</h2>
+					<!--
+					<p>{{overview snippet goes here}}</p>
+					<button class="" ng-click"" ng-controller="">Read More</button>
+					 -->
 				</div>
 			</ion-content>
 		</ion-tab>

@@ -250,6 +250,16 @@ h1, h2, h3 {
     background: #bcd5b9;
 }
 
+/* Character Page */
+.characterSlider {
+	text-align: center;
+	font-family: "HighTide_Bold";
+}
+
+.tabs-background-dark {
+	background-color: #142132 !important;
+}
+
 /* Character Profile Pages */
 .profile-page {
 	background: url('../img/bard-app-bg.png');

@@ -32,7 +32,7 @@ angular.module('BardApp.controllers', [])
 })
 
 
-.controller('CharacterController', function($scope, ContentSvc) {
+.controller('CharacterController', function($scope, $ionicSlideBoxDelegate, ContentSvc) {
 
 	$scope.characters = ContentSvc.CharacterContent();
 	$scope.characterList = $scope.characters;
@@ -50,6 +50,12 @@ angular.module('BardApp.controllers', [])
 			$scope.characterList = $scope.characters;
 		}
 	}
+
+	$scope.placard = $scope.characters[0].name;
+  
+	$scope.slideChanged = function(index) {
+		$scope.placard = $scope.characters[index].name;
+	};
 
 })
 
