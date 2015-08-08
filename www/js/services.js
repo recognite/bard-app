@@ -2,14 +2,47 @@ angular.module('BardApp.services', [])
 
 .service('ContentSvc', function($http) {
 	this.SlideContent = function() {
-
-		/* This content should come from a file. */
 		slideContent = [
-			{title: 'DISCOVER DEEP FORGOTTEN WISDOM', description: 'Bard Mythologies revives the Bardic Tradition, a wisdom of the people, which helps us to view life beneath the surface and make sense of the world around us through the story, folklore, symbols and archetypal characters.', button: "0", buttonText: 'Swipe left to continue', buttonLink: '#/app/home', img: "spiral.png"},
-			{title: 'IRISH MYTH & LEGEND', description: 'Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology.', button: "1", buttonText: 'GET STARTED', buttonLink: '#/app/myths', img: "spiral.png"},
-			{title: 'STORIES', description: 'Each cycle comprises a unique set of stories that contain the collective desires and goals of a people.', buttonText: 'GET STARTED', button: "1", buttonLink: '#/app/stories', img: "spiral.png"},
-			{title: 'CHARACTERS', description: 'The stories are filled with great heroic archetypes and characters that carry the wisdom of the people.', buttonText: 'GET STARTED', button: "1", buttonLink: '#/app/characters', img: "spiral.png"},
-			{title: 'JOURNEYS', description: 'Gain a deeper insight into the stories by taking a guided journey on one of the wisdom paths.', buttonText: 'GET STARTED', button: "1", buttonLink: '#/app/journeys', img: "spiral.png"}
+			{
+				"title": "DISCOVER DEEP FORGOTTEN WISDOM", 
+				"description": "Bard Mythologies revives the Bardic Tradition, a wisdom of the people, which helps us to view life beneath the surface and make sense of the world around us through the story, folklore, symbols and archetypal characters.", 
+				"button": "0",
+				"buttonText": "Swipe left to continue", 
+				"buttonLink": "#/app/home", 
+				"img": "onboard-logo.png"
+			},
+			{
+				"title": "IRISH MYTH & LEGEND", 
+				"description": "Discover the wonderful imagination and wisdom contained in the cycles of Irish Mythology.", 
+				"button": "1", 
+				"buttonText": "GET STARTED", 
+				"buttonLink": "#/app/myths", 
+				"img": "onboard-myth.png"
+			},
+			{
+				"title": "STORIES", 
+				"description": "Each cycle comprises a unique set of stories that contain the collective desires and goals of a people.",
+				"button": "1",
+				"buttonText": "GET STARTED",
+				"buttonLink": "#/app/stories",
+				"img": "onboard-stories.png"
+			},
+			{
+				"title": "CHARACTERS", 
+				"description": "The stories are filled with great heroic archetypes and characters that carry the wisdom of the people.",
+				"button": "1",
+				"buttonText": "GET STARTED",
+				"buttonLink": "#/app/characters",
+				"img": "onboard-characters.png"
+			},
+			{
+				"title": "JOURNEYS", 
+				"description": "Gain a deeper insight into the stories by taking a guided journey on one of the wisdom paths.", 
+				"button": "1",
+				"buttonText": "GET STARTED", 
+				"buttonLink": "#/app/journeys", 
+				"img": "onboard-journeys.png"
+			}
 		];
 
 		return slideContent;
@@ -17,52 +50,59 @@ angular.module('BardApp.services', [])
 
 	this.StoryContent = function() {
 		storyMyths = [
-			{cycle: "Mythological", stories: [
-				{title: "Cian And Eithlinn", link: ""},
-				{title: "Invasions 1 - Cesaire", link: ""},
-				{title: "Invasions 2 - Partholon", link: ""},
-				{title: "Invasions 3 - Nemed And The Fir Bolg", link: ""},
-				{title: "Invasions 4 - The First Battle Of Moy Tura", link: ""},
-				{title: "Invasions 5 - The Second Battle Of Moy Tura", link: ""},
-				{title: "Invasions 6 - The Sons Of Mil And The Battle Of Tailtiu", link: ""},
-				{title: "Midir And Etain", link: ""},
-				{title: "The Dagda's Harp", link: ""},
-				{title: "The Voyage Of Bran", link: ""},
-				{title: "Book Of Invasions 1", link: ""},
-				{title: "Book Of Invasions 2", link: ""},
-				{title: "Book Of Invasions 3", link: ""},
-				{title: "Book Of Invasions 4", link: ""},
-				{title: "Cormac Mac Art 1", link: ""},
-				{title: "Niall Of The Nine Hostages", link: ""}
-			]},
-			{cycle: "Fenian", stories: [
-				{title: "Diarmuid And Grainne", link: ""},
-				{title: "Finn and the Fianna", link: ""},
-				{title: "Finn - Birth And Boyhood", link: ""},
-				{title: "Oisin In Tir na nOg", link: ""}
-			]},
-			{cycle: "Kings", stories: [
-				{title: "Conaire Mor", link: ""},
-				{title: "Cormac Mac Art", link: ""},
-				{title: "Labhraidh Loingseach", link: ""},
-				{title: "Mongan", link: ""},
-				{title: "Niall Of The Nine Hostages", link: ""}
-			]},
-			{cycle: "Ulster", stories: [
-				{title: "Setanta Joins The Boy's Troop", link: ""},
-				{title: "How Cuchulainn Got His Name", link: ""},
-				{title: "Cuchulainn - Taking Up Of Arms", link: ""},
-				{title: "Cuchulainn - Wooing Of Emer", link: ""},
-				{title: "Cuchulainn's Training With Scathach", link: ""},
-				{title: "Deirdre Of The Sorrows", link: ""},
-				{title: "Ferdia At The Ford", link: ""},
-				{title: "The Champion's Portion 1", link: ""},
-				{title: "The Champion's Portion 2", link: ""},
-				{title: "The Champion's Portion 3", link: ""},
-				{title: "The Death Of Cuchulainn", link: ""},
-				{title: "The Sickbed Of Cuchulainn", link: ""},
-				{title: "The Son Of Cuchulainn - Death Of Connla", link: ""}
-			]}
+			{
+				"cycle": "Mythological",
+				"image": "icon-cycle-myth.png",
+				"stories": [
+					{"title": "Invasions 1 - Cesaire", "link": "cycle_mythological/book-of-invasions-1-cesaire.json"},
+					{"title": "Invasions 2 - Partholon", "link": "cycle_mythological/book-of-invasions-2-partholon.json"},
+					{"title": "Invasions 3 - Nemed And The Fir Bolg", "link": "cycle_mythological/book-of-invasions-3-nemed-and-the-fir-bolg.json"},
+					{"title": "Invasions 4 - The First Battle Of Moy Tura", "link": "cycle_mythological/book-of-invasions-4-tuatha-de-dannan.json"},
+					{"title": "Invasions 5 - The Second Battle Of Moy Tura", "link": "cycle_mythological/book-of-invasions-5-the-sons-of-mil.json"},
+					{"title": "Invasions 6 - The Sons Of Mil And The Battle Of Tailtiu", "link": "cycle_mythological/"},
+					{"title": "Midir And Etain", "link": "cycle_mythological/midir-and-etain.json"}
+				]
+			},
+			{
+				"cycle": "Ulster",
+				"image": "icon-cycle-ulster.png",
+				"stories": [
+					{"title": "Setanta Joins The Boy's Troop", "link": "cycle_ulster/setanta-joins-the-boys-troop.json"},
+					{"title": "How Cuchulainn Got His Name", "link": "cycle_ulster/how-cuchulainn-got-his-name.json"},
+					{"title": "Cuchulainn - Taking Up Of Arms", "link": "cycle_ulster/how-cuchulainn-took-up-arms.json"},
+					{"title": "Cuchulainn - Wooing Of Emer", "link": "cycle_ulster/cuchulainn-the-wooing-of-emer.json"},
+					{"title": "Cuchulainn's Training With Scathach", "link": "cycle_ulster/cuchulainns-training-with-scathach.json"},
+					{"title": "Deirdre Of The Sorrows", "link": "cycle_ulster/deirdre-of-the-sorrows.json"},
+					{"title": "Ferdia At The Ford", "link": "cycle_ulster/ferdia-at-the-ford.json"},
+					{"title": "The Champion's Portion 1", "link": "cycle_ulster/cuchulainn-and-the-champions-portion-1-bricrius-feast.json"},
+					{"title": "The Champion's Portion 2", "link": "cycle_ulster/cuchulainn-and-the-champions-portion-2-tests-at-cruachan.json"},
+					{"title": "The Champion's Portion 3", "link": "cycle_ulster/cuchulainn-and-the-champions-portion-3-cu-roi-mac-dara.json"},
+					{"title": "The Death Of Cuchulainn", "link": "cycle_ulster/the-death-of-cuchulainn.json"},
+					{"title": "The Sickbed Of Cuchulainn", "link": "cycle_ulster/the-sickbed-of-cuchulainn.json"},
+					{"title": "The Son Of Cuchulainn - Death Of Connla", "link": "cycle_ulster/the-son-of-cuchulainn.json"}
+				]
+			},
+			{
+				"cycle": "Fenian",
+				"image": "icon-cycle-fenian.png",
+				"stories": [
+					{"title": "Diarmuid And Grainne", "link": "cycle_fenian/"},
+					{"title": "Finn and the Fianna", "link": "cycle_fenian/finn-and-the-fianna.json"},
+					{"title": "Finn - Birth And Boyhood", "link": "cycle_fenian/the-birth-and-boyhood-of-finn-mac-cumhaill.json"},
+					{"title": "Oisin In Tir na nOg", "link": "cycle_fenian/oisin-in-tir-na-nog.json"}
+				]
+			},
+			{
+				"cycle": "King", 
+				"image": "icon-cycle-kings.png",
+				"stories": [
+					{"title": "Conaire Mor", "link": "cycle_kings/conaire-mor.json"},
+					{"title": "Cormac Mac Art", "link": "cycle_kings/cormac-mac-airt.json"},
+					{"title": "Labhraidh Loingseach", "link": "cycle_kings/"},
+					{"title": "Mongan", "link": "cycle_kings/mongan.json"},
+					{"title": "Niall Of The Nine Hostages", "link": "cycle_kings/niall-of-the-nine-hostages.json"}
+				]
+			}
 		];
 
 		return storyMyths;
@@ -124,61 +164,70 @@ angular.module('BardApp.services', [])
 		});
 */
 		characters = [
-    {
-        "name": "Aengus Og",
-        "link": "character_profiles/aengus-og.json",
-        "img": "cycle_mythological/aenghus_og.png",
-        "cycle": "Mythological"
-    },
-    {
-        "name": "Allil",
-        "link": "character_profiles/allill.json",
-        "img": "cycle_mythological/allil.png",
-        "cycle": "Mythological"
-    },
-    {
-        "name": "Aoife",
-        "link": "character_profiles/aoife.json",
-        "img": "cycle_ulster/aoife.png",
-        "cycle": "Ulster"
-    },
-    {
-        "name": "Balor",
-        "link": "character_profiles/balor.json",
-        "img": "cycle_mythological/balor_eye.png",
-        "cycle": "Mythological"
-    },
-    {
-        "name": "Bodhbh Dearg",
-        "link": "character_profiles/bodhbh-dearg.json",
-        "img": "cycle_fenian/bodhbh_dearg.png",
-        "cycle": "Fenian"
-    },
-    {
-        "name": "Breas The Beautiful",
-        "link": "character_profiles/breas.json",
-        "img": "cycle_mythological/breas.png",
-        "cycle": "Mythological"
-    },
-    {
-        "name": "Bricriu of the Poisoned Tongue",
-        "link": "character_profiles/bricriu.json",
-        "img": "cycle_ulster/bricriu.png",
-        "cycle": "Ulster"
-    },
-    {
-        "name": "Brigid",
-        "link": "character_profiles/brigid.json",
-        "img": "cycle_mythological/brigit.png",
-        "cycle": "Mythological"
-    },
-    {
-        "name": "Cathbad",
-        "link": "character_profiles/cathbad.json",
-        "img": "cycle_ulster/cathbad.png",
-        "cycle": "Ulster"
-    }
-];
+			{
+				"name": "Aengus Og",
+				"link": "character_profiles/aengus-og.json",
+				"img": "cycle_mythological/aenghus_og.png",
+				"cycle": "Mythological",
+				"snippet": "Aengus Og son of the Daghda and Bionn (Goddess of the river Boyne) is the love god of Irish Mythology..."
+			},
+			{
+				"name": "Allil",
+				"link": "character_profiles/allill.json",
+				"img": "cycle_mythological/allil.png",
+				"cycle": "Mythological",
+				"snippet": "Ailill was just a boy when he was brought to Meadhbh's court.  He grew to be a fine champion and Meadhbh..."
+			},
+			{
+				"name": "Aoife",
+				"link": "character_profiles/aoife.json",
+				"img": "cycle_ulster/aoife.png",
+				"cycle": "Ulster",
+				"snippet": "Aoife (The Bright One) was the daughter of Ailill of Aran, foster daughter to Bodhbh Dearg the King of..."
+			},
+			{
+				"name": "Balor",
+				"link": "character_profiles/balor.json",
+				"img": "cycle_mythological/balor_eye.png",
+				"cycle": "Mythological",
+				"snippet": "Balor was a powerful leader of the Formorians; a dark and demonic race that were the terrible oppressors..."
+			},
+			{
+				"name": "Bodhbh Dearg",
+				"link": "character_profiles/bodhbh-dearg.json",
+				"img": "cycle_fenian/bodhbh_dearg.png",
+				"cycle": "Fenian",
+				"snippet": "Bodhbh Dearg (Bov The Red) resided in Sídh ar Feimhim ( Slievenamon Co Tipperary). He was the chosen King of..."
+			},
+			{
+				"name": "Breas The Beautiful",
+				"link": "character_profiles/breas.json",
+				"img": "cycle_mythological/breas.png",
+				"cycle": "Mythological",
+				"snippet": "Breas became King of the Tuatha De Danann when Nuadu was wounded in battle against the Fir Bolgs..."
+			},
+			{
+				"name": "Brigid",
+				"link": "character_profiles/brigid.json",
+				"img": "cycle_mythological/brigit.png",
+				"cycle": "Mythological",
+				"snippet": "The character of Brigid is extremely interesting in that she seems to have been both a pagan goddess and..."
+			},
+			{
+				"name": "Cathbad",
+				"link": "character_profiles/cathbad.json",
+				"img": "cycle_ulster/cathbad.png",
+				"cycle": "Ulster",
+				"snippet": "The term druid means 'very knowledgeable' and druids were seen as members of an exclusive occupational class..."
+			},
+			{
+				"name": "Conaire Mor",
+				"link": "character_profiles/conaire-mor.json",
+				"img": "cycle_king/conaire.png",
+				"cycle": "King",
+				"snippet": "When Eochaid married Etain, Etain produced one child, a daughter. The king was furious at this and ordered that..."
+			}
+		];
 
 		return characters;
 	}
@@ -186,12 +235,11 @@ angular.module('BardApp.services', [])
 	this.MythContent = function() {
 		whyMyths = [
 			{name: "Why Myth", items: [
-				{title: 'The Idea of the Bard', image: 'ionic.png'},
-				{title: 'Collective Stories', image: 'ionic.png'},
-				{title: 'Multi-Valent Stories', image: 'ionic.png'},
-				{title: 'Always About Today', image: 'ionic.png'},
-				{title: 'Why Myth', image: 'ionic.png'},
-				{title: 'Why Myth', image: 'ionic.png'}
+				{title: 'The Idea of the Bard', image: 'list-item-icon.png'},
+				{title: 'Collective Stories', image: 'list-item-icon.png'},
+				{title: 'Multi-Valent Stories', image: 'list-item-icon.png'},
+				{title: 'Always About Today', image: 'list-item-icon.png'},
+				{title: 'Why Myth', image: 'list-item-icon.png'}
 			]}
 		];
 
@@ -200,34 +248,50 @@ angular.module('BardApp.services', [])
 
 	this.JourneyContent = function() {
 		journeys = [
-			{name: "Hero's Journey", items: [
-					{title: 'Hero #1', image: 'ionic.png'},
-					{title: 'Hero #2', image: 'ionic.png'},
-					{title: 'Hero #3', image: 'ionic.png'},
-					{title: 'Hero #4', image: 'ionic.png'},
-					{title: 'Hero #5', image: 'ionic.png'}
-				]},
-			{name: "Warrior's Journey", items: [
-					{title: 'Warrior #1', image: 'ionic.png'},
-					{title: 'Warrior #2', image: 'ionic.png'},
-					{title: 'Warrior #3', image: 'ionic.png'}
-				]},
-			{name: "Lover's Journey", items: [
-					{title: 'Lover #1', image: 'ionic.png'},
-					{title: 'Lover #2', image: 'ionic.png'},
-					{title: 'Lover #3', image: 'ionic.png'},
-					{title: 'Lover #4', image: 'ionic.png'},
-					{title: 'Lover #5', image: 'ionic.png'},
-					{title: 'Lover #6', image: 'ionic.png'},
-					{title: 'Lover #7', image: 'ionic.png'}
-				]},
-			{name: "Sage's Journey", items: [
-					{title: 'Sage #1', image: 'ionic.png'},
-					{title: 'Sage #2', image: 'ionic.png'},
-					{title: 'Sage #3', image: 'ionic.png'},
-					{title: 'Sage #4', image: 'ionic.png'},
-					{title: 'Sage #5', image: 'ionic.png'}
-				]}
+			{
+				"name": "Hero's Journey",
+				"image": "icon-journey-hero.png",
+				"items": [
+					{"title": "Hero #1"},
+					{"title": "Hero #2"},
+					{"title": "Hero #3"},
+					{"title": "Hero #4"},
+					{"title": "Hero #5"}
+				]
+			},
+			{
+				"name": "Warrior's Journey",
+				"image": "icon-journey-warrior.png",
+				"items": [
+					{"title": "Warrior #1"},
+					{"title": "Warrior #2"},
+					{"title": "Warrior #3"}
+				]
+			},
+			{
+				"name": "Lovers' Journey",
+				"image": "icon-journey-lovers.png",
+				"items": [
+					{"title": "Lover #1"},
+					{"title": "Lover #2"},
+					{"title": "Lover #3"},
+					{"title": "Lover #4"},
+					{"title": "Lover #5"},
+					{"title": "Lover #6"},
+					{"title": "Lover #7"}
+				]
+			},
+			{
+				"name": "Sage's Journey",
+				"image": "icon-journey-sage.png",
+				"items": [
+					{"title": "Sage #1"},
+					{"title": "Sage #2"},
+					{"title": "Sage #3"},
+					{"title": "Sage #4"},
+					{"title": "Sage #5"}
+				]
+			}
 		];
 
 		return journeys;

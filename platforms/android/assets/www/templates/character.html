@@ -10,14 +10,20 @@
 				<br/>
 
 				<div class="story-slider">
-					<ion-slide-box show-pager="false">
+					<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
 						<ion-slide ng-repeat="character in characters">
 							<div class="slide">
 								<img src="img/{{character.img}}">
 							</div>
 						</ion-slide>
 					</ion-slide-box>
-					<h3>{{placard}}</h3>
+					<div class="bard-panel">
+						<h2 class="character-slider">{{placard}}</h2>
+						<p class="character-slider-txt">{{snippet}}</p>
+						<div ng-controller="ProfileController">
+							<button class="button button-bard" ng-click="showProfile({{profile}})">Read More</button>
+						</div>
+					</div>
 				</div>
 			</ion-content>
 		</ion-tab>
@@ -42,12 +48,12 @@
 			  <ion-list>
 				<div class="bard-panel">
 					<br/>
-					<p>Filter by cycle:</p>
-					<button class="filter-btn" data-ng-click="filterList('All')">All</button>
-					<button class="filter-btn" data-ng-click="filterList('Mythological')">Mythological</button>
-					<button class="filter-btn" data-ng-click="filterList('Ulster')">Ulster</button>
-					<button class="filter-btn" data-ng-click="filterList('Fenian')">Fenian</button>
-					<button class="filter-btn" data-ng-click="filterList('Kings')">Kings</button>
+					<p class="filter-txt">Filter by cycle:</p>
+					<button class="button filter-btn" data-ng-click="filterList('All')">All</button>
+					<button class="button filter-btn" data-ng-click="filterList('Mythological')">Mythological</button>
+					<button class="button filter-btn" data-ng-click="filterList('Ulster')">Ulster</button>
+					<button class="button filter-btn" data-ng-click="filterList('Fenian')">Fenian</button>
+					<button class="button filter-btn" data-ng-click="filterList('King')">King</button>
 				</div>
 
 				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>

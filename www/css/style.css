@@ -1,6 +1,9 @@
 /* 
  * Bard App Stylesheet
  */
+body {
+	color: #FFFFFF;
+}
 
 .pane {
 	background: url('../img/bard-bg-full.jpg');
@@ -57,6 +60,11 @@ h1, h2, h3 {
     display:block;
 }
 
+.centered-img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .home-tile {
 	text-align: center;
 	border: 1px solid #FFFFFF;
@@ -91,18 +99,22 @@ h1, h2, h3 {
 }
 
 .bard-panel {
+/*	border: 2px solid #848d96;
 	background-color: #071a29;
+	background-color: rgb(16, 40, 50, 0.5);*/
+	background: transparent;
 	text-align: center;
 	padding: 40px;
-	border: 2px solid #848d96;
+	width: 100%;
 }
 
 .bard-panel h2 {
-	font-weight: bold;
+	font-family: "HighTide_Bold";
 }
 
-.bard-panel h3 {
-	font-style: italic;
+.bard-panel p {
+	/*color: #296b69;		/* Green */
+	font-family: "PTSerif_Italic";
 }
 
 .bard-title {
@@ -185,12 +197,23 @@ h1, h2, h3 {
 
 
 /* Buttons */
-.filter-btn {
+.filter-txt {
 	color: #FFFFFF;
-	border-radius: 2px;
-	background-color: #071a29;
+	font-family: "PTSans_Bold";
 }
 
+.filter-btn {
+	color: #FFFFFF;
+	background-color: #102832;
+	border-radius: 5px;
+	font-family: "PTSans_Bold";
+}
+
+.button-bard {
+	color: #FFFFFF;
+	background-color: #15a67b;
+	font-family: "HighTide_Bold";
+}
 
 /* Journey stuff */
 
@@ -199,8 +222,9 @@ h1, h2, h3 {
 	padding-top: 0;
 	padding-bottom: 0;
 	transition: 0.09s all linear;
-	background: transparent;
-	color: #000000;
+	/*background: transparent;*/
+	background: #1f333c;
+	color: #FFFFFF;
 }
 .list .item.item-accordion.ng-hide {
   line-height: 0px;
@@ -211,17 +235,24 @@ h1, h2, h3 {
 }
 
 .list .item.item-stable {
-	background: transparent;
+/*	background: transparent; */
+	background: #102832;
 	color: #ffffff;
 }
 
 .list .item.item-stable.active {
+
+	background-image: linear-gradient(bottom, #1f333c 50%, #102832 50%);
+	background-image: -o-linear-gradient(bottom, #1f333c 50%, #102832 50%);
+	background-image: -moz-linear-gradient(bottom, #1f333c 50%, #102832 50%);
+	background-image: -webkit-linear-gradient(bottom, #1f333c 50%, #102832 50%);
+	background-image: -ms-linear-gradient(bottom, #1f333c 50%, #102832 50%);
 /*
-	background-image: linear-gradient(bottom, #848d96 50%, #071a29 50%);
-	background-image: -o-linear-gradient(bottom, #848d96 50%, #071a29 50%);
-	background-image: -moz-linear-gradient(bottom, #848d96 50%, #071a29 50%);
-	background-image: -webkit-linear-gradient(bottom, #848d96 50%, #071a29 50%);
-	background-image: -ms-linear-gradient(bottom, #848d96 50%, #071a29 50%);
+	background-image: linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
+	background-image: -o-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
+	background-image: -moz-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
+	background-image: -webkit-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
+	background-image: -ms-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
 */
 	color: #ffffff;
 }
@@ -229,6 +260,10 @@ h1, h2, h3 {
 .list .item-divider {
 /*	background-color: #fffacd;*/
 	color: #000000;
+}
+
+.progress-journey {
+	float: right;
 }
 
 /* Home Screen */
@@ -251,9 +286,14 @@ h1, h2, h3 {
 }
 
 /* Character Page */
-.characterSlider {
+.character-slider {
 	text-align: center;
 	font-family: "HighTide_Bold";
+}
+
+.character-slider {
+	text-align: center;
+	font-family: "PT_Serif";
 }
 
 .tabs-background-dark {

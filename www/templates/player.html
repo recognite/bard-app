@@ -28,7 +28,9 @@
 			<button class="button button-clear button-dark icon ion-skip-forward" ng-click=""></button>
 		</div>
 
-		<p class="player-mainText"></p>
+		<p class="player-mainText" ng-repeat="para in paras.content">
+			{{para}}
+		</p>
 
 	</ion-content>
 </ion-modal-view>

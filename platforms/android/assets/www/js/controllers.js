@@ -41,7 +41,7 @@ angular.module('BardApp.controllers', [])
 	 * Filter the list to show only the selected
 	 */
 	$scope.filterList = function($criterion) {
-		if($criterion == 'Fenian' || $criterion == 'Kings' || $criterion == 'Mythological' || $criterion == 'Ulster') {
+		if($criterion == 'Fenian' || $criterion == 'King' || $criterion == 'Mythological' || $criterion == 'Ulster') {
 			$newList = $scope.characterList.filter(function(data) {
 					return data.cycle == $criterion;
 			});
@@ -52,9 +52,13 @@ angular.module('BardApp.controllers', [])
 	}
 
 	$scope.placard = $scope.characters[0].name;
+	$scope.snippet = $scope.characters[0].snippet;
+	$scope.profile = $scope.characters[0];
   
 	$scope.slideChanged = function(index) {
 		$scope.placard = $scope.characters[index].name;
+		$scope.snippet = $scope.characters[index].snippet;
+		$scope.morelink = $scope.characters[index];
 	};
 
 })
@@ -100,11 +104,32 @@ angular.module('BardApp.controllers', [])
 .controller('StoryController', function($scope, ContentSvc) {
 
 	$scope.myths = ContentSvc.StoryContent();
+	/*
+	 * if given group is the selected group, deselect it
+	 * else, select the given group
+	 */
+	$scope.toggleGroup = function(group) {
+		if ($scope.isGroupShown(group)) {
+			$scope.shownGroup = null;
+		} else {
+			$scope.shownGroup = group;
+		}
+	};
+	$scope.isGroupShown = function(group) {
+		return $scope.shownGroup === group;
+	};
 
+	$scope.listSize = function(group) {
+		return group.stories.length;
+	};
+
+	$scope.completed = function(group) {
+		return 0;
+	};
 })
 
 
-.controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, AudioSvc) {
+.controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, $http, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -125,7 +150,6 @@ angular.module('BardApp.controllers', [])
 		$scope.modal.remove();
 	});
 
-
 	$ionicPlatform.ready(function() {
 
 		$scope.openPlayer = function(story) {
@@ -134,6 +158,14 @@ angular.module('BardApp.controllers', [])
 
 			$scope.title = story.title;
 			$scope.cycle = "Fenian";
+
+			$http.get('content/' + story.link).success(function(response){ 
+				$scope.paras = response;
+				console.log('content/' + story.link);
+			}).error(function(data) {
+				console.log('content/' + story.link);
+				console.log("Error in PlayerController with http.get");
+			});
 
 			$scope.position = 30;
 			$scope.currentPos = "05:10";
@@ -198,5 +230,13 @@ angular.module('BardApp.controllers', [])
 	};
 	$scope.isGroupShown = function(group) {
 		return $scope.shownGroup === group;
+	};
+
+	$scope.listSize = function(group) {
+		return group.items.length;
+	};
+
+	$scope.completed = function(group) {
+		return 0;
 	};
 });

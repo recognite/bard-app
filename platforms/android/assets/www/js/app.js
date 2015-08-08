@@ -66,7 +66,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 		cache: false,
 		views: {
 			'menuContent': {
-				templateUrl: "templates/story.html",
+				templateUrl: "templates/stories.html",
 				controller: 'StoryController'
 			}
 		}
@@ -77,7 +77,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 		cache: false,
 		views: {
 			'menuContent': {
-				templateUrl: "templates/character.html",
+				templateUrl: "templates/characters.html",
 				controller: 'CharacterController'
 			}
 		}

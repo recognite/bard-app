@@ -1,0 +1,72 @@
+<ion-view title="CHARACTERS">
+	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+		<ion-tab title="Characters">
+			<!-- Tab 1 content -->
+			<ion-content>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+
+				<div class="story-slider">
+					<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
+						<ion-slide ng-repeat="character in characters">
+							<div class="slide">
+								<img src="img/{{character.img}}">
+							</div>
+						</ion-slide>
+					</ion-slide-box>
+				</div>
+				<div class="bard-panel">
+					<h2 class="character-slider">{{placard}}</h2>
+					<p class="character-slider-txt">{{snippet}}</p>
+					<div ng-controller="ProfileController">
+						<button class="button button-bard" ng-click="showProfile(morelink)">Read More</button>
+					</div>
+				</div>
+			</ion-content>
+		</ion-tab>
+
+		<ion-tab title="Search">
+			<!-- Tab 2 content -->
+			<ion-content>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+
+				<div class="bar bar-header item-input-inset">
+					<label class="item-input-wrapper">
+					<i class="icon ion-ios-search placeholder-icon"></i>
+						<input type="search" id="searchTerm" placeholder="Search for a character" ng-model="searchCharacter" />
+					</label>
+					<button class="button button-clear">Cancel</button>
+				</div>
+
+			  <ion-list>
+				<div class="bard-panel">
+					<br/>
+					<p class="filter-txt">Filter by cycle:</p>
+					<button class="button filter-btn" data-ng-click="filterList('All')">All</button>
+					<button class="button filter-btn" data-ng-click="filterList('Mythological')">Mythological</button>
+					<button class="button filter-btn" data-ng-click="filterList('Ulster')">Ulster</button>
+					<button class="button filter-btn" data-ng-click="filterList('Fenian')">Fenian</button>
+					<button class="button filter-btn" data-ng-click="filterList('King')">King</button>
+				</div>
+
+				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>
+				  <ion-item class="item item-avatar" ng-click="showProfile(character)">
+					<img src="img/{{character.img}}">
+					<h2>{{character.name}}</h2>
+					<p></p>
+				  </ion-item>			
+
+				</div>
+			  </ion-list>
+
+			</ion-content>
+		</ion-tab>
+	</ion-tabs>
+</ion-view>
