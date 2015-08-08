@@ -53,7 +53,7 @@ angular.module('BardApp.controllers', [])
 
 	$scope.placard = $scope.characters[0].name;
 	$scope.snippet = $scope.characters[0].snippet;
-	$scope.profile = $scope.characters[0];
+	$scope.morelink = $scope.characters[0];
   
 	$scope.slideChanged = function(index) {
 		$scope.placard = $scope.characters[index].name;
@@ -65,7 +65,7 @@ angular.module('BardApp.controllers', [])
 
 
 .controller('ProfileController', function($scope, $ionicModal, $http) {
-	$ionicModal.fromTemplateUrl('templates/profile-page.html', {
+	$ionicModal.fromTemplateUrl('templates/profile.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
 	}).then(function(modal) {
@@ -152,18 +152,17 @@ angular.module('BardApp.controllers', [])
 
 	$ionicPlatform.ready(function() {
 
-		$scope.openPlayer = function(story) {
+		$scope.openPlayer = function(cycle, story) {
+			$scope.tale = story;
 			$scope.loaded = true;
 			$scope.isPlaying = false;
 
 			$scope.title = story.title;
-			$scope.cycle = "Fenian";
+			$scope.cycle = cycle;
 
-			$http.get('content/' + story.link).success(function(response){ 
+			$http.get('content/stories/' + $scope.tale.link).success(function(response){ 
 				$scope.paras = response;
-				console.log('content/' + story.link);
 			}).error(function(data) {
-				console.log('content/' + story.link);
 				console.log("Error in PlayerController with http.get");
 			});
 

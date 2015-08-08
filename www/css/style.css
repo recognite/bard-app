@@ -344,7 +344,8 @@ h1, h2, h3 {
 
 /* Story Player Pages */
 .player-page {
-	background: url('../img/bard-app-bg.png');
+/*	background: url('../img/bard-app-bg.png');*/
+	background: url('../img/bard-bg-half.jpg');
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -372,6 +373,10 @@ h1, h2, h3 {
 	color: #506666;
 }
 
+.player-mainText {
+	font-family: "PTSerif";
+	padding: 10px;
+}
 
 /* Story Player Pages: Audio Controls */
 .audio-controls {

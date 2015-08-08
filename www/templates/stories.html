@@ -17,7 +17,7 @@
 		  <ion-item class="item-accordion" ng-repeat="story in myth.stories" ng-show="isGroupShown(myth)">
 			<div class="row" ng-controller="PlayerController">
 				<div class="col col-5"><img src="img/list-item-icon.png" alt="image" height="35" /></div>
-				<div class="col col-90" ng-click="openPlayer(story)">{{story.title}}</div>
+				<div class="col col-90" ng-click="openPlayer(myth.cycle, story)">{{story.title}}</div>
 			</div>
 		  </ion-item>
 		</div>
