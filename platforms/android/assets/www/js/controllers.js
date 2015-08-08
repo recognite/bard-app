@@ -53,7 +53,7 @@ angular.module('BardApp.controllers', [])
 
 	$scope.placard = $scope.characters[0].name;
 	$scope.snippet = $scope.characters[0].snippet;
-	$scope.profile = $scope.characters[0];
+	$scope.morelink = $scope.characters[0];
   
 	$scope.slideChanged = function(index) {
 		$scope.placard = $scope.characters[index].name;
@@ -65,7 +65,7 @@ angular.module('BardApp.controllers', [])
 
 
 .controller('ProfileController', function($scope, $ionicModal, $http) {
-	$ionicModal.fromTemplateUrl('templates/profile-page.html', {
+	$ionicModal.fromTemplateUrl('templates/profile.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
 	}).then(function(modal) {
@@ -91,6 +91,21 @@ angular.module('BardApp.controllers', [])
 
 	$scope.showProfile = function(character) {
 		$scope.profile = character;
+
+		if($scope.profile.cycle === 'Mythological') {
+			$scope.cycleCss = "profile-caption profile-mythological";
+			$scope.cycleImg = "icon-cycle-myth.png";
+		} else if($scope.profile.cycle === 'Ulster') {
+			$scope.cycleCss = "profile-caption profile-ulster";
+			$scope.cycleImg = "icon-cycle-ulster.png";
+		} else if($scope.profile.cycle === 'Fenian') {
+			$scope.cycleCss = "profile-caption profile-fenian";
+			$scope.cycleImg = "icon-cycle-fenian.png";
+		} else {	// Kings
+			$scope.cycleCss = "profile-caption profile-kings";
+			$scope.cycleImg = "icon-cycle-kings.png";
+		}
+
 		$http.get('content/' + $scope.profile.link).success(function(response){ 
 			$scope.content = response;
 		}).error(function(data) {
@@ -152,18 +167,17 @@ angular.module('BardApp.controllers', [])
 
 	$ionicPlatform.ready(function() {
 
-		$scope.openPlayer = function(story) {
+		$scope.openPlayer = function(cycle, story) {
+			$scope.tale = story;
 			$scope.loaded = true;
 			$scope.isPlaying = false;
 
 			$scope.title = story.title;
-			$scope.cycle = "Fenian";
+			$scope.cycle = cycle;
 
-			$http.get('content/' + story.link).success(function(response){ 
+			$http.get('content/stories/' + $scope.tale.link).success(function(response){ 
 				$scope.paras = response;
-				console.log('content/' + story.link);
 			}).error(function(data) {
-				console.log('content/' + story.link);
 				console.log("Error in PlayerController with http.get");
 			});
 

@@ -91,6 +91,21 @@ angular.module('BardApp.controllers', [])
 
 	$scope.showProfile = function(character) {
 		$scope.profile = character;
+
+		if($scope.profile.cycle === 'Mythological') {
+			$scope.cycleCss = "profile-caption profile-mythological";
+			$scope.cycleImg = "icon-cycle-myth.png";
+		} else if($scope.profile.cycle === 'Ulster') {
+			$scope.cycleCss = "profile-caption profile-ulster";
+			$scope.cycleImg = "icon-cycle-ulster.png";
+		} else if($scope.profile.cycle === 'Fenian') {
+			$scope.cycleCss = "profile-caption profile-fenian";
+			$scope.cycleImg = "icon-cycle-fenian.png";
+		} else {	// Kings
+			$scope.cycleCss = "profile-caption profile-kings";
+			$scope.cycleImg = "icon-cycle-kings.png";
+		}
+
 		$http.get('content/' + $scope.profile.link).success(function(response){ 
 			$scope.content = response;
 		}).error(function(data) {

@@ -342,6 +342,22 @@ h1, h2, h3 {
 	padding: 10px;
 }
 
+.profile-mythological {
+	color: #54a4c5;
+}
+
+.profile-ulster {
+	color: #dc878a;
+}
+
+.profile-fenian {
+	color: #65aaa5;
+}
+
+.profile-kings {
+	color: #757e9d;
+}
+
 /* Story Player Pages */
 .player-page {
 /*	background: url('../img/bard-app-bg.png');*/

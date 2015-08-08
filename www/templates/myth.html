@@ -1,20 +1,20 @@
 <ion-view title="MYTHS">
 	<ion-content class="has-header">
-		<div class="mainContent">
-			<h1>Irish Myths and Legends</h1>
-			<p>Irish Myths and Legends content goes here!</p>
-
-			<ion-list>
-				<div ng-repeat="group in groups">
-					<ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
-						{{group.name}}
-					</ion-item>
-					<ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
-						<img src="img/{{item.image}}" alt="image" height="35" />
-						{{item.title}}
-					</ion-item>
-				</div>
-			</ion-list>
+		<div class="bard-panel">
+			<h2>Bard Introduction</h2>
+			<p>Become an Apprentice Bard.</p>
 		</div>
+
+		<ion-list>
+			<div ng-repeat="group in groups">
+				<ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+					{{group.name}}
+				</ion-item>
+				<ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
+					<img src="img/{{item.image}}" alt="image" height="35" />
+					{{item.title}}
+				</ion-item>
+			</div>
+		</ion-list>
 	</ion-content>
 </ion-view>
