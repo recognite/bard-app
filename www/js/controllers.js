@@ -171,6 +171,7 @@ angular.module('BardApp.controllers', [])
 			$scope.tale = story;
 			$scope.loaded = true;
 			$scope.isPlaying = false;
+			$scope.resumePlay = false;
 
 			$scope.title = story.title;
 			$scope.cycle = cycle;
@@ -181,21 +182,32 @@ angular.module('BardApp.controllers', [])
 				console.log("Error in PlayerController with http.get");
 			});
 
-			$scope.position = 30;
-			$scope.currentPos = "05:10";
-			$scope.total = "10:09";
+			$scope.position = 0;
+			$scope.currentPos = "00:00";
+			$scope.total = "00:00";
 
 			$scope.showPlayer();
 		};
 
 		$scope.playStory = function() {
-			AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
-				$scope.position = Math.ceil(a / b * 100);
-				if (a < 0) {
-					$scope.stopAudio();
-				}
+			if($scope.resumePlay === false) {	// First play
+				//AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
+				AudioSvc.playAudio($scope.tale.audio, function(a, b) {
+					$scope.position = Math.ceil(a / b * 100);
+					$scope.currentPos = a;
+					$scope.total = b;
+					if (a < 0) {
+						$scope.stopAudio();
+					}
+					$scope.resumePlay = true;
+					if (!$scope.$$phase) $scope.$apply();
+				});
+			} else {	// Resume from pause
+				AudioSvc.resumeAudio();
+				$scope.isPlaying = false;
 				if (!$scope.$$phase) $scope.$apply();
-			});
+			}
+
 			$scope.isPlaying = true;
 		};
 

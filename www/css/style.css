@@ -302,7 +302,8 @@ h1, h2, h3 {
 
 /* Character Profile Pages */
 .profile-page {
-	background: url('../img/bard-app-bg.png');
+/*	background: url('../img/bard-app-bg.png');*/
+	background: url('../img/bard-bg-half.jpg');
 	background-repeat: no-repeat;
 	background-position: top center;
 }
