@@ -144,7 +144,7 @@ angular.module('BardApp.controllers', [])
 })
 
 
-.controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, $http, AudioSvc) {
+.controller('PlayerController', function($scope, $ionicModal, $ionicPlatform, $http, $filter, AudioSvc) {
 	$ionicModal.fromTemplateUrl('templates/player.html', {
 		scope: $scope,
 		animation: 'slide-in-right'
@@ -194,8 +194,8 @@ angular.module('BardApp.controllers', [])
 				//AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
 				AudioSvc.playAudio($scope.tale.audio, function(a, b) {
 					$scope.position = Math.ceil(a / b * 100);
-					$scope.currentPos = a;
-					$scope.total = b;
+					$scope.currentPos = $filter('date')(a, 'mm:ss');
+					$scope.total = $filter('date')(b, 'mm:ss');
 					if (a < 0) {
 						$scope.stopAudio();
 					}
