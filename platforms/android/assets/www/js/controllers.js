@@ -157,6 +157,8 @@ angular.module('BardApp.controllers', [])
 	};
 
 	$scope.hidePlayer = function() {
+		// Kill the audio, if its playing!
+		AudioSvc.stopAudio();
 		$scope.modal.hide();
 	};
 
@@ -194,17 +196,16 @@ angular.module('BardApp.controllers', [])
 				//AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
 				AudioSvc.playAudio($scope.tale.audio, function(a, b) {
 					$scope.position = Math.ceil(a / b * 100);
-					$scope.currentPos = $filter('date')(a, 'mm:ss');
-					$scope.total = $filter('date')(b, 'mm:ss');
+					$scope.currentPos = Math.ceil(a);
+					$scope.total = Math.ceil(b);
 					if (a < 0) {
-						$scope.stopAudio();
+						AudioSvc.stopAudio();
 					}
 					$scope.resumePlay = true;
 					if (!$scope.$$phase) $scope.$apply();
 				});
 			} else {	// Resume from pause
 				AudioSvc.resumeAudio();
-				$scope.isPlaying = false;
 				if (!$scope.$$phase) $scope.$apply();
 			}
 

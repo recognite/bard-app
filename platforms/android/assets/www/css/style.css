@@ -6,19 +6,21 @@ body {
 }
 
 .pane {
-	background: url('../img/bard-bg-full.jpg');
+/*	background: url('../img/bard-bg-full.jpg');
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	background-position: top center;
+	background-position: top center;*/
+	background: #102832;
 }
 
 .bar.bar-dark {
 	background-color: transparent !important; 
 }
 .scroll-content {
+	background: url('../img/bard-bg-full.jpg');
 	overflow: visible !important;
 }
 
@@ -361,14 +363,15 @@ h1, h2, h3 {
 
 /* Story Player Pages */
 .player-page {
-/*	background: url('../img/bard-app-bg.png');*/
+/*	background: url('../img/bard-app-bg.png');
 	background: url('../img/bard-bg-half.jpg');
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	background-position: top center;
+	background-position: top center;*/
+	background: #102832;
 }
 
 .player-header {
