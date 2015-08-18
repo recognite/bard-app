@@ -1,159 +1,21 @@
 /* 
  * Bard App Stylesheet
  */
-body {
-	color: #FFFFFF;
-}
-
-.pane {
-/*	background: url('../img/bard-bg-full.jpg');
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	background-position: top center;*/
+.pane, .bar, .scroll-content {
 	background: #102832;
-}
-
-.bar.bar-dark {
-	background-color: transparent !important; 
-}
-.scroll-content {
-	background: url('../img/bard-bg-full.jpg');
-	overflow: visible !important;
-}
-
-.bard-nav {
-	background-color: #071a29;
-	color: #ffffff;
-}
-
-.list, .item {
-    background: transparent;
-}
-
-.bard-link {
-	text-align: center;
-	color: #ffffff;
-	text-decoration: none;
-}
-
-h1, h2, h3 {
-	color: #ffffff;
-}
-
-.rounded {
-	border-radius: 25px;
-	border: 1px solid #ffffff;
-	background-color: #071a29;
-	color: #ffffff;
-}
-
-.selected {
-	background-color: #ffffff;
-	color: #000000;
-}
-
-/* Home */
-.responsive {
-	max-width:100% !important;
-    height:auto;
-    display:block;
-}
-
-.centered-img {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.home-tile {
-	text-align: center;
-	border: 1px solid #FFFFFF;
-}
-
-.home-tile-heading {
 	color: #FFFFFF;
-	font-family: "PTSans_Bold";
+	text-align: center;
+	font-family: "PTSerif";
 }
 
-.home-tile img {
-	margin: auto;
+.tabs {
+	background-color: transparent !important;
 }
 
-.home-tile a {
+a:link, a:hover, a:active, a:visited  {
+	color: #FFFFFF;
 	text-decoration: none;
 }
-
-/* Stories */
-#searchTerm {
-	color: #ffffff;
-}
-
-.item-input-wrapper, .item-input-inset {
-	background-color: #071a29;
-	color: #ffffff;
-	border: 1px solid #ffffff;
-}
-
-.bard-box {
-	margin-bottom: 40px;
-}
-
-.bard-panel {
-/*	border: 2px solid #848d96;
-	background-color: #071a29;
-	background-color: rgb(16, 40, 50, 0.5);*/
-	background: transparent;
-	text-align: center;
-	padding: 40px;
-	width: 100%;
-}
-
-.bard-panel h2 {
-	font-family: "HighTide_Bold";
-}
-
-.bard-panel p {
-	/*color: #296b69;		/* Green */
-	font-family: "PTSerif_Italic";
-}
-
-.bard-title {
-	color: #ff0000;
-}
-
-/* Story Slider */
-.story-slider {
-	height: 40%;
-	width: 56%;
-	margin: 0 auto;
-}
-
-.story-slider .slider {
-	height: 100%;
-	overflow: visible;
-}
-
-.story-slider .slider-slide {
-	overflow: hidden;
-	color: #000;
-	text-align: center;
-}
-
-.story-slider ion-slide {
-	background: transparent;
-	padding-right: 3px;
-	padding-left: 3px;
-}
-
-.story-slider ion-slide img {
-	width: 60%;
-}
-
-.story-slider ion-slide:first-child { padding-left: 0; }
-.story-slider ion-slide:last-child { padding-left: 0; }
-.story-slider ion-slide:nth-child(2) { z-index: 1; }
 
 /* Slides */
 .slider {
@@ -162,269 +24,98 @@ h1, h2, h3 {
 }
 
 .slider-pager {
-	top: 0;
+	top: 5%;
 	bottom: initial;
 }
 
 .slider-pager-page {
-	color: #cccccc !important;
+	color: #CCCCCC !important;
 }
 
 .slider-pager-page.active {
-	color: #ffffff;
+	color: #FFFFFF;
 }
 
 .slider-slide {
-	padding-top: 80px;
-	color: #ffffff;
-	background-color: #071a29;
-	text-align: center;
+	padding-top: 10%;
 }
 
-.bard-footer {
-	background-color: transparent;
-	padding-bottom: 5%;
-}
-
-/* Archetypes */
-.bard-arche-span {
-	width: 100%;
-}
-
-.bard-archetype {
-	background-color: #071a29;
-	color: #ffffff;
-	width: 100%;
-}
-
-
-/* Buttons */
-.filter-txt {
+/* Fonts and Headings */
+.slide-heading {
 	color: #FFFFFF;
-	font-family: "PTSans_Bold";
+	font-family: "PTSerif_Bold";
 }
 
-.filter-btn {
-	color: #FFFFFF;
-	background-color: #102832;
-	border-radius: 5px;
-	font-family: "PTSans_Bold";
+.slide-subheading {
+	font-family: "PTSerif_Italic";
 }
 
-.button-bard {
+.section-heading {
 	color: #FFFFFF;
-	background-color: #15a67b;
 	font-family: "HighTide_Bold";
 }
 
-/* Journey stuff */
+.section-subheading {
+	color: #15a67b;
+	font-family: "PTSerif_Italic";
+}
 
+/* Buttons */
+.button-bard {
+	background: #15a67b;
+	font-family: "HighTide_Bold";
+}
+
+
+/* Side Menu */
+.bard-nav .list .item {
+	background: #102832;
+}
+
+/* Lists */
+.list, .item {
+    background: #102832;
+	color: #FFFFFF;
+	text-align: left;
+	font-family: "PTSans_Bold";
+}
+
+/* Lists: Subitems */
 .list .item.item-accordion {
 	line-height: 38px;
 	padding-top: 0;
 	padding-bottom: 0;
 	transition: 0.09s all linear;
-	/*background: transparent;*/
 	background: #1f333c;
 	color: #FFFFFF;
+	text-align: left;
 }
 .list .item.item-accordion.ng-hide {
-  line-height: 0px;
+	line-height: 0px;
 }
 .list .item.item-accordion.ng-hide-add,
 .list .item.item-accordion.ng-hide-remove {
-  display: block !important;
+	display: block !important;
 }
-
+/* Lists: Header items */
 .list .item.item-stable {
-/*	background: transparent; */
 	background: #102832;
-	color: #ffffff;
+	color: #FFFFFF;
+	text-align: left;
 }
 
+/* Lists: Header items when SubItems are shown */
 .list .item.item-stable.active {
-
 	background-image: linear-gradient(bottom, #1f333c 50%, #102832 50%);
 	background-image: -o-linear-gradient(bottom, #1f333c 50%, #102832 50%);
 	background-image: -moz-linear-gradient(bottom, #1f333c 50%, #102832 50%);
 	background-image: -webkit-linear-gradient(bottom, #1f333c 50%, #102832 50%);
 	background-image: -ms-linear-gradient(bottom, #1f333c 50%, #102832 50%);
-/*
-	background-image: linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
-	background-image: -o-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
-	background-image: -moz-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
-	background-image: -webkit-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
-	background-image: -ms-linear-gradient(bottom, rgb(31, 51, 60, 0) 50%, rgb(16, 40, 50, 1) 50%);
-*/
-	color: #ffffff;
-}
-
-.list .item-divider {
-/*	background-color: #fffacd;*/
-	color: #000000;
-}
-
-.progress-journey {
-	float: right;
-}
-
-/* Home Screen */
-.progressbard {
-    list-style: none;
-    position: relative;
-}
-.progressbard li {
-    height: 15px;
-    width: 5%;
-    list-style: none;
-	border-radius: 15px;
-    float: left;
-	margin-right: 5px;
-    background: #e9e9e9;
-}
-
-.progressbard li.done {
-    background: #bcd5b9;
-}
-
-/* Character Page */
-.character-slider {
-	text-align: center;
-	font-family: "HighTide_Bold";
-}
-
-.character-slider {
-	text-align: center;
-	font-family: "PT_Serif";
-}
-
-.tabs-background-dark {
-	background-color: #142132 !important;
-}
-
-/* Character Profile Pages */
-.profile-page {
-/*	background: url('../img/bard-app-bg.png');*/
-	background: url('../img/bard-bg-half.jpg');
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-
-.profile-header {
-	background: transparent;
-}
-
-.profile-image {
-	width: 60%;
-	position: relative;
-	top: 10%;
-	left: 20%;
-}
-
-.profile-title {
-	font-family: "HighTide_Bold";
 	color: #FFFFFF;
-	text-align: center;
-}
-
-.profile-caption {
-	font-family: "PTSerif_Italic";
-	color: #FFFFFF;
-	padding: 10px;
-}
-
-.profile-section {
-	font-family: "PTSans_Bold_Italic";
-	color: #FFFFFF;
-	text-align: center;
-}
-
-.profile-mainText {
-	font-family: "PTSerif";
-	color: #FFFFFF;
-	padding: 10px;
-}
-
-.profile-mythological {
-	color: #54a4c5;
-}
-
-.profile-ulster {
-	color: #dc878a;
-}
-
-.profile-fenian {
-	color: #65aaa5;
-}
-
-.profile-kings {
-	color: #757e9d;
-}
-
-/* Story Player Pages */
-.player-page {
-/*	background: url('../img/bard-app-bg.png');
-	background: url('../img/bard-bg-half.jpg');
-	background-repeat: no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-	background-position: top center;*/
-	background: #102832;
-}
-
-.player-header {
-	background: transparent;
-}
-
-.player-panel {
-	padding: 50px 0px;
-}
-
-.player-title {
-	text-align: center;
-	text-transform: uppercase;
-	color: #FFFFFF;
-}
-
-.player-caption {
-	text-align: center;
-	color: #506666;
-}
-
-.player-mainText {
-	font-family: "PTSerif";
-	padding: 10px;
-}
-
-/* Story Player Pages: Audio Controls */
-.audio-controls {
-	text-align: center;
-}
-
-.audio-progress {
-	width: 90%;
-	margin: auto;
-}
-
-#audio-pb-bg {
-	background-color: #FFFFFF;
-}
-
-.audio-current {
-	display: inline;
 	text-align: left;
 }
 
-.audio-total {
-	display: inline;
-	float: right;
-	text-align: right;
+.list .item-divider {
+	color: #000000;
 }
 
-.audio-progressbar {
-	height: 10px;
-	transition: width 0.2s; 
-	background: #dd6161;
-}

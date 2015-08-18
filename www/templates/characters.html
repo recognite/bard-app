@@ -1,5 +1,6 @@
 <ion-view title="CHARACTERS">
-	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">
+<!--	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">-->
+	<ion-tabs class="tabs-striped tabs-top tabs-color-light">
 		<ion-tab title="Characters">
 			<!-- Tab 1 content -->
 			<ion-content>
@@ -58,9 +59,11 @@
 
 				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>
 				  <ion-item class="item item-avatar" ng-click="showProfile(character)">
-					<img src="img/{{character.img}}">
+					<img src="img/{{character.img}}">{{character.name}}
+<!--
 					<h2>{{character.name}}</h2>
 					<p></p>
+-->
 				  </ion-item>			
 
 				</div>
