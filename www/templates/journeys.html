@@ -1,22 +1,32 @@
-<ion-view view-title="JOURNEYS">
+<ion-view>
+	<ion-nav-title>
+		<h4 class="section-heading">JOURNEYS</h4>
+	</ion-nav-title>
 	<ion-content>
 		<div class="bard-panel">
-			<h2>Mythic Journeys</h2>
-			<p>Four wisdom paths into Irish Myth</p>
+			<h2 class="section-heading">Mythic Journeys</h2>
+			<p class="section-subheading">Four wisdom paths into Irish Myth</p>
 		</div>
 
 	  <ion-list>
 		<div ng-repeat="group in groups">
 		  <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
 			<div class="row">
-				<div class="col"><img src="img/{{group.image}}" alt="image" height="35" /></div>
+				<div class="col"><img class="list-img" src="img/{{group.image}}" alt="image" /></div>
 				<div class="col col-75">{{group.name}}</div>
 				<div class="col"><div class="progress-journey"> <span ng-bind="completed(group)"></span> / <span ng-bind="listSize(group)"></span></div></div>
 			</div>
 		  </ion-item>
 		  <ion-item class="item-accordion" ng-repeat="item in group.items" ng-show="isGroupShown(group)">
 			<div class="row">
-				<div class="col col-5"><img src="img/list-item-icon.png" alt="image" height="35" /></div>
+				<div class="col col-5">
+					<div ng-show="{{item.done}}">
+						<img class="list-img" src="img/list-item-completed-icon.png" alt="image" />
+					</div>
+					<div ng-hide="{{item.done}}">
+						<img class="list-img" src="img/list-item-icon.png" alt="image" />
+					</div>
+				</div>
 				<div class="col col-90">{{item.title}}</div>
 			</div>
 		  </ion-item>

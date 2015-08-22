@@ -1,19 +1,25 @@
 <ion-modal-view class="profile-page">
-	<ion-header-bar class="profile-header">
-		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="closeModal()"></button>
-		<!--	<a class="button" href="javascript:" ng-click="closeModal()">
-				<i class="icon ion-close"></i>
-			</a>	 -->
+	<!-- Header bar contains close button (X icon) -->
+	<ion-header-bar>
+<!--		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="closeModal()"></button> -->
+		<button class="button button-clear icon ion-ios-close-outline pull-right" ng-click="closeModal()"></button>
 	</ion-header-bar>
+
+	<!-- Character Profile content -->
 	<ion-content>
-		<img class="profile-image" src="img/{{profile.img}}">
-		<h2 class="profile-title"><img src="img/{{cycleImg}}" src="Cycle Image" height="35" />{{profile.name}}</h2>
-		<p ng-class="cycleCss">{{content.overview}}</p>
+		<div class="modal-bg">
+			<img class="profile-image" src="img/{{profile.img}}">
+			<h2 class="profile-title"><img src="img/{{cycleImg}}" src="Cycle Image" height="35" />{{profile.name}}</h2>
+			<!-- "cycleCss" handles colouring the content according to the Cycle -->
+			<p ng-class="cycleCss">{{content.overview}}</p>
 
-		<h4 class="profile-section">Background:</h4>
-		<p class="profile-mainText" ng-repeat="story in content.stories">{{story}}</p>
+			<h4 class="profile-section">Background:</h4>
+			<!-- Character Profile Paragraphs, from the background onwards -->
+			<p class="modal-main-text" ng-repeat="story in content.stories">{{story}}</p>
 
-		<h4 class="profile-section">Conclusion:</h4>
-		<p class="profile-mainText">{{content.conclusion}}</p>
+			<!-- Character Profile Conclusion -->
+			<h4 class="profile-section">Conclusion:</h4>
+			<p class="modal-main-text">{{content.conclusion}}</p>
+		</div>
 	</ion-content>
 </ion-modal-view>

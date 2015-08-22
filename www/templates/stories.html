@@ -1,4 +1,7 @@
-<ion-view title="STORIES">
+<ion-view>
+	<ion-nav-title>
+		<h4 class="section-heading">STORIES</h4>
+	</ion-nav-title>
 	<ion-content>
 		<div class="bard-panel">
 			<h2 class="section-heading">Stories of Irish Myth</h2>
@@ -9,14 +12,14 @@
 		<div ng-repeat="myth in myths">
 		  <ion-item class="item-stable" ng-click="toggleGroup(myth)" ng-class="{active: isGroupShown(myth)}">
 			<div class="row">
-				<div class="col"><img src="img/{{myth.image}}" alt="image" height="35" /></div>
+				<div class="col"><img class="list-img" src="img/{{myth.image}}" alt="{{myth.cycle}} image" /></div>
 				<div class="col col-75">{{myth.cycle}}</div>
 				<div class="col"><div class="progress-journey"> <span ng-bind="completed(myth)"></span> / <span ng-bind="listSize(myth)"></span></div></div>
 			</div>
 		  </ion-item>
 		  <ion-item class="item-accordion" ng-repeat="story in myth.stories" ng-show="isGroupShown(myth)">
 			<div class="row" ng-controller="PlayerController">
-				<div class="col col-5"><img src="img/list-item-icon.png" alt="image" height="35" /></div>
+				<div class="col col-5"><img class="list-img" src="img/list-item-icon.png" alt="image" /></div>
 				<div class="col col-90" ng-click="openPlayer(myth.cycle, story)">{{story.title}}</div>
 			</div>
 		  </ion-item>

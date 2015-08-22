@@ -2,43 +2,62 @@
  * Bard App Stylesheet
  */
 .pane, .bar, .scroll-content {
-	background: #102832;
+	background: #142132;
 	color: #FFFFFF;
 	text-align: center;
 	font-family: "PTSerif";
+	border: 0px;
+}
+
+.scroll-content {
+
 }
 
 .tabs {
-	background-color: transparent !important;
+	background-color: #142132 !important;
 }
 
+.modal-bg {
+	background-image: url('../img/bard-bg-half.jpg');
+	background-repeat:no-repeat;
+	background-size:contain;
+}
+
+
+/* Hyperlinks */
 a:link, a:hover, a:active, a:visited  {
 	color: #FFFFFF;
 	text-decoration: none;
 }
 
-/* Slides */
-.slider {
-	height: 100%;
-	slider-width: 0.8;
+/* Images */
+.responsive {
+	max-width:100% !important;
+    height:auto;
+    display:block;
 }
 
-.slider-pager {
-	top: 5%;
-	bottom: initial;
+.slide-image {
+	max-width:100% !important;
+	width: 40%;
+    height:auto;
+    display:block;
+	margin: 0 auto;
 }
 
-.slider-pager-page {
-	color: #CCCCCC !important;
+.char-slide-img {
+	top: 350px;
 }
 
-.slider-pager-page.active {
-	color: #FFFFFF;
+.list-img {
+	width: 60%;
 }
 
-.slider-slide {
-	padding-top: 10%;
+.centered-img {
+	margin-left: auto;
+	margin-right: auto;
 }
+
 
 /* Fonts and Headings */
 .slide-heading {
@@ -60,24 +79,55 @@ a:link, a:hover, a:active, a:visited  {
 	font-family: "PTSerif_Italic";
 }
 
+.modal-main-text {
+	font-family: "PTSerif";
+	color: #FFFFFF;
+	padding: 10px;
+}
+
+.filter-text {
+	color: #FFFFFF;
+	font-family: "PTSans_Bold";
+}
+
+/* Panels */
+.bard-panel {
+	background-image: url('../img/bard-bg-half.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position: center;
+	padding: 40px;
+	width: 100%;
+}
+
+.bard-footer {
+	position: absolute; 
+	bottom: 15%; 
+	width: 100%;
+}
+
 /* Buttons */
 .button-bard {
 	background: #15a67b;
 	font-family: "HighTide_Bold";
 }
 
-
-/* Side Menu */
-.bard-nav .list .item {
-	background: #102832;
+.filter-button {
+	background-color: #142132;
+	border-radius: 5px;
+	padding: 5px;
 }
 
 /* Lists */
 .list, .item {
-    background: #102832;
+    background: #142132;
 	color: #FFFFFF;
 	text-align: left;
 	font-family: "PTSans_Bold";
+}
+
+.item-avatar {
+	border: 1px solid #000000;
 }
 
 /* Lists: Subitems */
@@ -89,6 +139,7 @@ a:link, a:hover, a:active, a:visited  {
 	background: #1f333c;
 	color: #FFFFFF;
 	text-align: left;
+	border: 0px;
 }
 .list .item.item-accordion.ng-hide {
 	line-height: 0px;
@@ -99,23 +150,210 @@ a:link, a:hover, a:active, a:visited  {
 }
 /* Lists: Header items */
 .list .item.item-stable {
-	background: #102832;
+	background: #142132;
 	color: #FFFFFF;
 	text-align: left;
+	border: 0px;
 }
 
 /* Lists: Header items when SubItems are shown */
 .list .item.item-stable.active {
-	background-image: linear-gradient(bottom, #1f333c 50%, #102832 50%);
-	background-image: -o-linear-gradient(bottom, #1f333c 50%, #102832 50%);
-	background-image: -moz-linear-gradient(bottom, #1f333c 50%, #102832 50%);
-	background-image: -webkit-linear-gradient(bottom, #1f333c 50%, #102832 50%);
-	background-image: -ms-linear-gradient(bottom, #1f333c 50%, #102832 50%);
+	background-image: linear-gradient(bottom, #1f333c 50%, #142132 50%);
+	background-image: -o-linear-gradient(bottom, #1f333c 50%, #142132 50%);
+	background-image: -moz-linear-gradient(bottom, #1f333c 50%, #142132 50%);
+	background-image: -webkit-linear-gradient(bottom, #1f333c 50%, #142132 50%);
+	background-image: -ms-linear-gradient(bottom, #1f333c 50%, #142132 50%);
 	color: #FFFFFF;
 	text-align: left;
+	border: 0px;
 }
 
 .list .item-divider {
 	color: #000000;
 }
 
+/* Pages */
+
+/* Side Menu */
+.bard-nav .list .item {
+	background: #142132;
+	height: 20%;
+}
+
+/* Onboarding Slider */
+.onboard-slider .slider {
+	height: 100%;
+	slider-width: 0.8;
+}
+
+.onboard-slider .slider-pager {
+	top: 5%;
+	bottom: initial;
+}
+
+.onboard-slider .slider-pager-page {
+	color: #CCCCCC !important;
+}
+
+.onboard-slider .slider-pager-page.active {
+	color: #FFFFFF;
+}
+
+.onboard-slider .slider-slide {
+	top: 10%;
+}
+
+/* Home Page */
+.home-tile {
+	text-align: center;
+	border: 1px solid #FFFFFF;
+}
+
+.home-tile-heading {
+	color: #FFFFFF;
+	font-family: "PTSans_Bold";
+}
+
+.home-tile img {
+	margin: auto;
+}
+
+.home-tile a {
+	text-decoration: none;
+}
+
+/* Character Page Slider */
+.char-slider {
+	height: 40%;
+	width: 56%;
+	margin: 0 auto;
+}
+
+.char-slider .slider {
+	height: 100%;
+	overflow: visible;
+}
+
+.char-slider .slider-slide {
+	overflow: hidden;
+	color: #000;
+	text-align: center;
+}
+
+.char-slider ion-slide {
+	background: transparent;
+	padding-right: 3px;
+	padding-left: 3px;
+}
+
+.char-slider ion-slide img {
+	width: 60%;
+}
+
+.char-slider ion-slide:first-child { padding-left: 0; }
+.char-slider ion-slide:last-child { padding-left: 0; }
+.char-slider ion-slide:nth-child(2) { z-index: 1; }
+
+/* Character Profile Pages */
+.profile-header {
+	background: transparent !important;
+}
+
+.profile-image {
+	width: 60%;
+	position: relative;
+	top: 20%;
+}
+
+.profile-title {
+	font-family: "HighTide_Bold";
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.profile-caption {
+	font-family: "PTSerif_Italic";
+	color: #FFFFFF;
+	padding: 10px;
+}
+
+.profile-section {
+	font-family: "PTSans_Bold_Italic";
+	color: #FFFFFF;
+	text-align: center;
+}
+
+.profile-mainText {
+	font-family: "PTSerif";
+	color: #FFFFFF;
+	padding: 10px;
+}
+
+.profile-mythological {
+	color: #54a4c5;
+}
+
+.profile-ulster {
+	color: #dc878a;
+}
+
+.profile-fenian {
+	color: #65aaa5;
+}
+
+.profile-kings {
+	color: #757e9d;
+}
+
+/* Story Player Pages */
+.player-panel {
+	padding: 50px 0px;
+}
+
+.player-title {
+	text-align: center;
+	text-transform: uppercase;
+	color: #FFFFFF;
+}
+
+.player-caption {
+	text-align: center;
+	color: #506666;
+}
+
+.player-mainText {
+	font-family: "PTSerif";
+	padding: 10px;
+}
+
+/* Story Player Pages: Audio Controls */
+.audio-controls {
+	text-align: center;
+}
+
+.audio-progress {
+	width: 90%;
+	margin: auto;
+}
+
+#audio-pb-bg {
+	background-color: #FFFFFF;
+}
+
+.audio-current {
+	display: inline;
+	float: left;
+	text-align: left;
+}
+
+.audio-total {
+	display: inline;
+	float: right;
+	text-align: right;
+}
+
+.audio-progressbar {
+	height: 10px;
+	transition: width 0.2s; 
+	background: #dd6161;
+}

@@ -1,36 +1,43 @@
-<ion-modal-view class="player-page">
-	<ion-header-bar class="player-header">
-		<button class="button button-clear button-dark icon ion-close-circled pull-right" ng-click="hidePlayer()"></button>
+<ion-modal-view>
+	<ion-header-bar>
+		<button class="button button-clear icon ion-ios-close-outline pull-right" ng-click="hidePlayer()"></button>
 	</ion-header-bar>
 
 	<ion-content>
+		<div class="modal-bg">
+			<div class="player-panel">
+				<h1 class="section-heading">{{title}}</h1>
+				<p class="section-subheading">Stories of Irish Myth / {{cycle}} Cycle</p>
+			</div>
 
-		<div class="player-panel">
-			<h1 class="player-title">{{title}}</h1>
-			<p class="player-caption">Stories of Irish Myth / {{cycle}} Cycle</p>
+			<!-- Audio progress bar -->
+			<div class="audio-progress" id="audio-pb-bg">
+				<div ng-show="loaded" class="audio-progressbar" style="width: {{position}}%;"></div>
+			</div>
+			<div class="audio-progress">
+				<div class="audio-current">{{currentPos}}</div>
+				<div class="audio-total">{{total}}</div>
+			</div>
+
+
+			<!-- Audio controls <<back play/pause fwd>> -->
+			<div class="audio-controls">
+<!--
+				<button class="button button-clear button-dark icon ion-skip-backward" ng-click=""></button>
+				<button class="button button-clear button-dark button-large icon ion-play" ng-click="playStory()" ng-hide="isPlaying || !loaded"></button>
+				<button class="button button-clear button-dark button-large icon ion-pause" ng-click="pauseStory()" ng-show="isPlaying"></button>
+				<button class="button button-clear button-dark icon ion-skip-forward" ng-click=""></button>
+-->
+				<button class="button button-clear button-large icon ion-ios-skipbackward-outline" ng-click=""></button>
+				<button class="button button-clear button-large icon ion-ios-play-outline" ng-click="playStory()" ng-hide="isPlaying || !loaded"></button>
+				<button class="button button-clear button-large icon ion-ios-pause-outline" ng-click="pauseStory()" ng-show="isPlaying"></button>
+				<button class="button button-clear button-large icon ion-ios-skipforward-outline" ng-click=""></button>
+			</div>
+
+			<!-- Story content -->
+			<p class="modal-main-text" ng-repeat="para in paras.content">
+				{{para}}
+			</p>
 		</div>
-
-		<!-- Audio progress bar -->
-		<div class="audio-progress" id="audio-pb-bg">
-			<div ng-show="loaded" class="audio-progressbar" style="width: {{position}}%;"></div>
-		</div>
-		<div class="audio-progress">
-			<div class="audio-current">{{currentPos}}</div>
-			<div class="audio-total">{{total}}</div>
-		</div>
-
-
-		<!-- Audio controls <<back play/pause fwd>> -->
-		<div class="audio-controls">
-			<button class="button button-clear button-dark icon ion-skip-backward" ng-click=""></button>
-			<button class="button button-clear button-dark button-large icon ion-play" ng-click="playStory()" ng-hide="isPlaying || !loaded"></button>
-			<button class="button button-clear button-dark button-large icon ion-pause" ng-click="pauseStory()" ng-show="isPlaying"></button>
-			<button class="button button-clear button-dark icon ion-skip-forward" ng-click=""></button>
-		</div>
-
-		<p class="player-mainText" ng-repeat="para in paras.content">
-			{{para}}
-		</p>
-
 	</ion-content>
 </ion-modal-view>

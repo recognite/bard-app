@@ -1,22 +1,26 @@
-<ion-slide-box>
-	<ion-slide ng-repeat="slide in slides">
-		<div class="slide">
-			<img class="slideImg" src="img/{{slide.img}}" alt="Alt text goes here!" width="110">
-			<h1 class="slide-heading">{{slide.title}}</h1>
-			<p class="slide-subheading">{{slide.description}}</p>
+<div class="onboard-slider">
+	<ion-slide-box>
+		<ion-slide ng-repeat="slide in slides">
+			<div class="slide">
+				<img class="slide-image" src="img/{{slide.img}}" alt="Slide Title">
+				<h1 class="slide-heading">{{slide.title}}</h1>
+				<p class="slide-subheading">{{slide.description}}</p>
 
 
-			<div class="bar bar-footer bard-footer padding">
-				<div class="title">
-					<div ng-show="{{slide.button}}">
-						<a class="button button-full button-bard" href="{{slide.buttonLink}}">{{slide.buttonText}}</a>
-					</div>
-					<div ng-hide="{{slide.button}}">
-						<p>{{slide.buttonText}}</p>
+<!--				<div class="bar bar-footer bard-footer padding">
+					<div class="title"> -->
+				<div class="bard-footer">
+					<div class="title">
+						<div ng-show="{{slide.button}}">
+							<a class="button button-full button-bard" href="{{slide.buttonLink}}">{{slide.buttonText}}</a>
+						</div>
+						<div ng-hide="{{slide.button}}">
+							<p>{{slide.buttonText}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
 
-		</div>
-	</ion-slide>
-</ion-slide-box>
+		</ion-slide>
+	</ion-slide-box>
+</div>

@@ -1,5 +1,7 @@
-<ion-view title="CHARACTERS">
-<!--	<ion-tabs class="tabs-striped tabs-top tabs-background-dark tabs-color-light">-->
+<ion-view>
+	<ion-nav-title>
+		<h4 class="section-heading">CHARACTERS</h4>
+	</ion-nav-title>
 	<ion-tabs class="tabs-striped tabs-top tabs-color-light">
 		<ion-tab title="Characters">
 			<!-- Tab 1 content -->
@@ -10,18 +12,19 @@
 				<br/>
 				<br/>
 
-				<div class="story-slider">
+				<div class="char-slider">
 					<ion-slide-box show-pager="false" on-slide-changed="slideChanged(index)">
 						<ion-slide ng-repeat="character in characters">
 							<div class="slide">
+								<br/><br/><br/>
 								<img src="img/{{character.img}}">
 							</div>
 						</ion-slide>
 					</ion-slide-box>
 				</div>
 				<div class="bard-panel">
-					<h2 class="character-slider">{{placard}}</h2>
-					<p class="character-slider-txt">{{snippet}}</p>
+					<h2 class="section-heading">{{placard}}</h2>
+					<p>{{snippet}}</p>
 					<div ng-controller="ProfileController">
 						<button class="button button-bard" ng-click="showProfile(morelink)">Read More</button>
 					</div>
@@ -49,12 +52,12 @@
 			  <ion-list>
 				<div class="bard-panel">
 					<br/>
-					<p class="filter-txt">Filter by cycle:</p>
-					<button class="button filter-btn" data-ng-click="filterList('All')">All</button>
-					<button class="button filter-btn" data-ng-click="filterList('Mythological')">Mythological</button>
-					<button class="button filter-btn" data-ng-click="filterList('Ulster')">Ulster</button>
-					<button class="button filter-btn" data-ng-click="filterList('Fenian')">Fenian</button>
-					<button class="button filter-btn" data-ng-click="filterList('King')">King</button>
+					<p class="filter-text">Filter by cycle:</p>
+					<button class="button filter-text filter-button" ng-click="filterList('All')">All</button>
+					<button class="button filter-text filter-button" ng-click="filterList('Mythological')">Mythological</button>
+					<button class="button filter-text filter-button" ng-click="filterList('Ulster')">Ulster</button>
+					<button class="button filter-text filter-button" ng-click="filterList('Fenian')">Fenian</button>
+					<button class="button filter-text filter-button" ng-click="filterList('King')">King</button>
 				</div>
 
 				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>

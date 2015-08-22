@@ -238,6 +238,14 @@ angular.module('BardApp.controllers', [])
 	$scope.isGroupShown = function(group) {
 		return $scope.shownGroup === group;
 	};
+
+	$scope.listSize = function(group) {
+		return group.items.length;
+	};
+
+	$scope.completed = function(group) {
+		return 0;
+	};
 })
 
 

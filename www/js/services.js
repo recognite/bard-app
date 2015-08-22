@@ -350,13 +350,31 @@ angular.module('BardApp.services', [])
 
 	this.MythContent = function() {
 		whyMyths = [
-			{name: "Why Myth", items: [
-				{title: 'The Idea of the Bard', image: 'list-item-icon.png'},
-				{title: 'Collective Stories', image: 'list-item-icon.png'},
-				{title: 'Multi-Valent Stories', image: 'list-item-icon.png'},
-				{title: 'Always About Today', image: 'list-item-icon.png'},
-				{title: 'Why Myth', image: 'list-item-icon.png'}
-			]}
+			{
+				"name": "Why Myth",
+				"items": [
+					{
+						"title": "The Idea of the Bard",
+						"done": true
+					},
+					{
+						"title": "Collective Stories",
+						"done": false
+					},
+					{
+						"title": "Multi-Valent Stories",
+						"done": false
+					},
+					{
+						"title": "Always About Today",
+						"done": false
+					},
+					{
+						"title": "Why Myth",
+						"done": false
+					}
+				]
+			}
 		];
 
 		return whyMyths;
@@ -368,44 +386,104 @@ angular.module('BardApp.services', [])
 				"name": "Hero's Journey",
 				"image": "icon-journey-hero.png",
 				"items": [
-					{"title": "Hero #1"},
-					{"title": "Hero #2"},
-					{"title": "Hero #3"},
-					{"title": "Hero #4"},
-					{"title": "Hero #5"}
+					{
+						"title": "Hero #1",
+						"done": false
+					},
+					{
+						"title": "Hero #2",
+						"done": true
+					},
+					{
+						"title": "Hero #3",
+						"done": false
+					},
+					{
+						"title": "Hero #4",
+						"done": false
+					},
+					{
+						"title": "Hero #5",
+						"done": false
+					}
 				]
 			},
 			{
 				"name": "Warrior's Journey",
 				"image": "icon-journey-warrior.png",
 				"items": [
-					{"title": "Warrior #1"},
-					{"title": "Warrior #2"},
-					{"title": "Warrior #3"}
+					{
+						"title": "Warrior #1",
+						"done": false
+					},
+					{
+						"title": "Warrior #2",
+						"done": false
+					},
+					{
+						"title": "Warrior #3",
+						"done": false
+					}
 				]
 			},
 			{
 				"name": "Lovers' Journey",
 				"image": "icon-journey-lovers.png",
 				"items": [
-					{"title": "Lover #1"},
-					{"title": "Lover #2"},
-					{"title": "Lover #3"},
-					{"title": "Lover #4"},
-					{"title": "Lover #5"},
-					{"title": "Lover #6"},
-					{"title": "Lover #7"}
+					{
+						"title": "Lover #1",
+						"done": false
+					},
+					{
+						"title": "Lover #2",
+						"done": false
+					},
+					{
+						"title": "Lover #3",
+						"done": false
+					},
+					{
+						"title": "Lover #4",
+						"done": false
+					},
+					{
+						"title": "Lover #5",
+						"done": false
+					},
+					{
+						"title": "Lover #6",
+						"done": false
+					},
+					{
+						"title": "Lover #7",
+						"done": false
+					}
 				]
 			},
 			{
 				"name": "Sage's Journey",
 				"image": "icon-journey-sage.png",
 				"items": [
-					{"title": "Sage #1"},
-					{"title": "Sage #2"},
-					{"title": "Sage #3"},
-					{"title": "Sage #4"},
-					{"title": "Sage #5"}
+					{
+						"title": "Sage #1",
+						"done": false
+					},
+					{
+						"title": "Sage #2",
+						"done": false
+					},
+					{
+						"title": "Sage #3",
+						"done": false
+					},
+					{
+						"title": "Sage #4",
+						"done": false
+					},
+					{
+						"title": "Sage #5",
+						"done": false
+					}
 				]
 			}
 		];
@@ -415,6 +493,10 @@ angular.module('BardApp.services', [])
 
 })
 
+/*
+ * From: 
+ * Author: 
+ */
 .service('AudioSvc', [function() {
  
   var AudioSvc = {
