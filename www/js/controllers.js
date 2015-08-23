@@ -12,29 +12,10 @@ angular.module('BardApp.controllers', [])
 })
 
 
-.controller('HomeController', function($scope) {
-	$scope.modules = [
-		{progress: "done"},
-		{progress: "done"},
-		{progress: "done"},
-		{progress: "done"},
-		{progress: "todo"},
-		{progress: "todo"},
-		{progress: "todo"},
-		{progress: "todo"},
-		{progress: "todo"},
-		{progress: "todo"}
-	];
-
-	/*
-	 * Functions for incrementing progress go here!
-	 */
-})
-
-
 .controller('CharacterController', function($scope, $ionicSlideBoxDelegate, ContentSvc) {
 
 	$scope.characters = ContentSvc.CharacterContent();
+	console.log("CharCtrl: " + $scope.characters[0]);
 	$scope.characterList = $scope.characters;
 
 	/* 
@@ -51,16 +32,21 @@ angular.module('BardApp.controllers', [])
 		}
 	}
 
+	/*
+	 * Setup the default/first character text and button link
+	 */
 	$scope.placard = $scope.characters[0].name;
 	$scope.snippet = $scope.characters[0].snippet;
 	$scope.morelink = $scope.characters[0];
-  
+
+	/*
+	 * Change the text and button link based on which character is shown in the slider
+	 */
 	$scope.slideChanged = function(index) {
 		$scope.placard = $scope.characters[index].name;
 		$scope.snippet = $scope.characters[index].snippet;
 		$scope.morelink = $scope.characters[index];
 	};
-
 })
 
 
@@ -139,7 +125,10 @@ angular.module('BardApp.controllers', [])
 	};
 
 	$scope.completed = function(group) {
-		return 0;
+		$doneStories = group.stories.filter(function(data) {
+			return data.done == true;
+		});
+		return $doneStories.length;
 	};
 })
 
@@ -193,7 +182,6 @@ angular.module('BardApp.controllers', [])
 
 		$scope.playStory = function() {
 			if($scope.resumePlay === false) {	// First play
-				//AudioSvc.playAudio("http://site255.webelevate.net/bard/stories/bard-intro.mp3", function(a, b) {
 				AudioSvc.playAudio($scope.tale.audio, function(a, b) {
 					$scope.position = Math.ceil(a / b * 100);
 					$scope.currentPos = Math.ceil(a);
@@ -244,7 +232,10 @@ angular.module('BardApp.controllers', [])
 	};
 
 	$scope.completed = function(group) {
-		return 0;
+		$doneMyths = group.items.filter(function(data) {
+			return data.done == true;
+		});
+		return $doneMyths.length;
 	};
 })
 
@@ -272,6 +263,9 @@ angular.module('BardApp.controllers', [])
 	};
 
 	$scope.completed = function(group) {
-		return 0;
+		$doneJourneys = group.items.filter(function(data) {
+			return data.done == true;
+		});
+		return $doneJourneys.length;
 	};
 });

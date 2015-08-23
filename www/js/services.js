@@ -58,7 +58,7 @@ angular.module('BardApp.services', [])
 				        "title": "Invasions 1 - Cesaire",
 				        "link": "cycle_mythological/book-of-invasions-1-cesaire.json",
 						"audio": "http://bardmythologies.com/wp-content/uploads/Myth-02-Invasions-1-Cesaire-192Kbps-CBR.mp3",
-						"done": false
+						"done": true
 				    },
 				    {
 				        "title": "Invasions 2 - Partholon",
@@ -257,9 +257,13 @@ angular.module('BardApp.services', [])
 	this.CharacterContent = function() {
 		characters = [];
 /*
+ * AK: Problem seems to be that controllers.js is loading before services.js
+ *  and therefore the characters array is not populated in time.
+ * Hopefully it can be solved with an ionicPlatform.ready()
+
 		$http.get('content/character-list.json').success(function(response){ 
 			characters = response;
-			return characters;
+			console.log(characters[0]);
 		}).error(function(data) {
 			console.log("Error with http.get: no characters!");
 		});
@@ -331,6 +335,7 @@ angular.module('BardApp.services', [])
 		];
 
 		return characters;
+
 	}
 
 	this.MythContent = function() {

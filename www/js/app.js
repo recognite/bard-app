@@ -35,8 +35,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 		url: "/home",
 		views: {
 			'menuContent': {
-				templateUrl: "templates/home.html",
-				controller: "HomeController"
+				templateUrl: "templates/home.html"
 			}
 		}
     })
