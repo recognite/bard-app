@@ -6,6 +6,10 @@
 		<ion-tab title="Characters">
 			<!-- Tab 1 content -->
 			<ion-content>
+				<!-- 
+					The below five "new line" tags are a kludge. Seems to be a bug in Ionic ion-tab tag.
+					Without the five newlines, the content would be under the tab bar.
+				-->
 				<br/>
 				<br/>
 				<br/>
@@ -26,6 +30,7 @@
 					<h2 class="section-heading">{{placard}}</h2>
 					<p>{{snippet}}</p>
 					<div ng-controller="ProfileController">
+						<!-- Click the button to open the Character's profile -->
 						<button class="button button-bard" ng-click="showProfile(morelink)">Read More</button>
 					</div>
 				</div>
@@ -35,6 +40,10 @@
 		<ion-tab title="Search">
 			<!-- Tab 2 content -->
 			<ion-content>
+				<!-- 
+					The below five "new line" tags are a kludge. Seems to be a bug in Ionic ion-tab tag.
+					Without the five newlines, the content would be under the tab bar.
+				-->
 				<br/>
 				<br/>
 				<br/>
@@ -46,6 +55,7 @@
 					<i class="icon ion-ios-search placeholder-icon"></i>
 						<input type="search" id="searchTerm" placeholder="Search for a character" ng-model="searchCharacter" />
 					</label>
+					<!-- Cancel button functionality not added yet! -->
 					<button class="button button-clear">Cancel</button>
 				</div>
 
@@ -61,6 +71,7 @@
 				</div>
 
 				<div ng-repeat="character in characterList | filter:searchCharacter" ng-controller='ProfileController'>
+				<!-- Click the list item to open the Character's profile -->
 				  <ion-item class="item item-avatar" ng-click="showProfile(character)">
 					<img src="img/{{character.img}}">{{character.name}}
 <!--

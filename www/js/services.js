@@ -1,5 +1,9 @@
 angular.module('BardApp.services', [])
 
+/*
+ * This service, ContentSvc, provides all the content for the app.
+ * It is currently hard-coded, but will be read from JSON files in the future.
+ */
 .service('ContentSvc', function($http) {
 	this.SlideContent = function() {
 		slideContent = [
@@ -256,18 +260,19 @@ angular.module('BardApp.services', [])
 
 	this.CharacterContent = function() {
 		characters = [];
-/*
- * AK: Problem seems to be that controllers.js is loading before services.js
- *  and therefore the characters array is not populated in time.
- * Hopefully it can be solved with an ionicPlatform.ready()
-
+	/*
+	 * The below code reads the character list from a JSON file and returns it to the relevant 
+	 * controller in controller.js. This isn't currently working properly! So the character list
+	 * has been hard-coded for now.
+	 */
+	/*
 		$http.get('content/character-list.json').success(function(response){ 
 			characters = response;
 			console.log(characters[0]);
 		}).error(function(data) {
 			console.log("Error with http.get: no characters!");
 		});
-*/
+	*/
 		characters = [
 			{
 				"name": "Aengus Og",
@@ -484,8 +489,13 @@ angular.module('BardApp.services', [])
 })
 
 /*
- * From: 
- * Author: 
+ * From: http://thejackalofjavascript.com/ionic-framework-cordova-and-file-api-a-media-player-app/
+ * Author: Arvind Ravulavaru
+ *
+ * The below AudioSvc is from a tutorial by Arvind Ravulavaru, available at the above link.
+ * Not all his tutorial code was re-used but the AudioSvc part was retained.
+ * No licensing information could be found for the code on his website.
+ * This can be rewritten when time permits.
  */
 .service('AudioSvc', [function() {
  

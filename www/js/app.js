@@ -2,6 +2,7 @@
 
 angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
 
+/* Boilerplate Ionic code */
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -15,6 +16,7 @@ angular.module('BardApp', ['ionic', 'BardApp.controllers', 'BardApp.services'])
   });
 })
 
+/* Bard code */
 .config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/')
 

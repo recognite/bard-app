@@ -19,15 +19,16 @@ angular.module('BardApp.controllers', [])
 	$scope.characterList = $scope.characters;
 
 	/* 
-	 * Filter the list to show only the selected
+	 * Filter the list to show only the selected cycle
 	 */
 	$scope.filterList = function($criterion) {
+		// Show all the characters from one of the four cycles
 		if($criterion == 'Fenian' || $criterion == 'King' || $criterion == 'Mythological' || $criterion == 'Ulster') {
 			$newList = $scope.characterList.filter(function(data) {
 					return data.cycle == $criterion;
 			});
 			$scope.characterList = $newList;
-		} else {	// All
+		} else {	// Show all characters from all cycles
 			$scope.characterList = $scope.characters;
 		}
 	}
@@ -66,11 +67,6 @@ angular.module('BardApp.controllers', [])
 		$scope.modal.hide();
 	};
 
-	$scope.hidePlayer = function() {
-		$scope.modal.hide();
-	};
-
-	//Cleanup the modal when we're done with it!
 	$scope.$on('$destroy', function() {
 		$scope.modal.remove();
 	});
@@ -78,6 +74,9 @@ angular.module('BardApp.controllers', [])
 	$scope.showProfile = function(character) {
 		$scope.profile = character;
 
+		/*
+		 * The icon and colour of the opening paragraph are dependant on the cycle of the character
+		 */
 		if($scope.profile.cycle === 'Mythological') {
 			$scope.cycleCss = "profile-caption profile-mythological";
 			$scope.cycleImg = "icon-cycle-myth.png";
@@ -92,11 +91,18 @@ angular.module('BardApp.controllers', [])
 			$scope.cycleImg = "icon-cycle-kings.png";
 		}
 
+		/*
+		 * Load the profile content from a JSON file
+		 */
 		$http.get('content/' + $scope.profile.link).success(function(response){ 
 			$scope.content = response;
 		}).error(function(data) {
 			console.log("Error with http.get");
 		});
+
+		/*
+		 * Open the Profile modal window
+		 */
 		$scope.openModal();
 	};
 })
@@ -120,10 +126,16 @@ angular.module('BardApp.controllers', [])
 		return $scope.shownGroup === group;
 	};
 
+	/*
+	 * Returns the number of stories in the given cycle
+	 */
 	$scope.listSize = function(group) {
 		return group.stories.length;
 	};
 
+	/*
+	 * Returns the number of completed stories in the given cycle
+	 */
 	$scope.completed = function(group) {
 		$doneStories = group.stories.filter(function(data) {
 			return data.done == true;
@@ -146,12 +158,11 @@ angular.module('BardApp.controllers', [])
 	};
 
 	$scope.hidePlayer = function() {
-		// Kill the audio, if its playing!
+		// Stop the audio, if its playing!
 		AudioSvc.stopAudio();
 		$scope.modal.hide();
 	};
 
-	//Cleanup the modal when we're done with it!
 	$scope.$on('$destroy', function() {
 		$scope.modal.remove();
 	});
@@ -167,6 +178,9 @@ angular.module('BardApp.controllers', [])
 			$scope.title = story.title;
 			$scope.cycle = cycle;
 
+			/*
+			 * Load the story content from a JSON file
+			 */
 			$http.get('content/stories/' + $scope.tale.link).success(function(response){ 
 				$scope.paras = response;
 			}).error(function(data) {
@@ -182,10 +196,10 @@ angular.module('BardApp.controllers', [])
 
 		$scope.playStory = function() {
 			if($scope.resumePlay === false) {	// First play
-				AudioSvc.playAudio($scope.tale.audio, function(a, b) {
-					$scope.position = Math.ceil(a / b * 100);
-					$scope.currentPos = Math.ceil(a);
-					$scope.total = Math.ceil(b);
+				AudioSvc.playAudio($scope.tale.audio, function(a, b) {	// $scope.tale.audio is the web-link to the mp3 file
+					$scope.position = Math.ceil(a / b * 100);	// Used by the progress bar in the Player modal window
+					$scope.currentPos = Math.ceil(a);	// Should display the current position in the story as mm:ss
+					$scope.total = Math.ceil(b);		// Should display the total length of the story in mm:ss
 					if (a < 0) {
 						AudioSvc.stopAudio();
 					}
@@ -227,10 +241,16 @@ angular.module('BardApp.controllers', [])
 		return $scope.shownGroup === group;
 	};
 
+	/*
+	 * Returns the number of myth items
+	 */
 	$scope.listSize = function(group) {
 		return group.items.length;
 	};
 
+	/*
+	 * Returns the number of completed myth items
+	 */
 	$scope.completed = function(group) {
 		$doneMyths = group.items.filter(function(data) {
 			return data.done == true;
@@ -258,10 +278,16 @@ angular.module('BardApp.controllers', [])
 		return $scope.shownGroup === group;
 	};
 
+	/*
+	 * Returns the number of journey items
+	 */
 	$scope.listSize = function(group) {
 		return group.items.length;
 	};
 
+	/*
+	 * Returns the number of completed journey items
+	 */
 	$scope.completed = function(group) {
 		$doneJourneys = group.items.filter(function(data) {
 			return data.done == true;

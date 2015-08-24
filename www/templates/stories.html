@@ -20,9 +20,15 @@
 		  <ion-item class="item-accordion" ng-repeat="story in myth.stories" ng-show="isGroupShown(myth)">
 			<div class="row" ng-controller="PlayerController">
 				<div class="col col-5">
+					<!-- 
+						If the item is completed, show the completed icon....
+					-->
 					<div ng-show="{{story.done}}">
 						<img class="list-img" src="img/list-item-completed-icon.png" alt="image" />
 					</div>
+					<!-- 
+						... else, show the uncompleted icon.
+					-->
 					<div ng-hide="{{story.done}}">
 						<img class="list-img" src="img/list-item-icon.png" alt="image" />
 					</div>
